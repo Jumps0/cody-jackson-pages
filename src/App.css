@@ -9,10 +9,9 @@
 }
 
 .title-section {
+  position: relative;
   display: grid;
-  justify-content: space-between;
-  align-content: start; 
-  grid-template-columns: 250px auto auto; 
+  grid-template-columns: 1fr;
   gap: 32px;
   width: 100%;
   align-items: start;
@@ -33,6 +32,13 @@
   flex-direction: column;
   justify-content: center;
   min-height: 172px;
+}
+
+.title-section .contact-card {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  width: 250px;
 }
 
 .contact-card h3 {
@@ -88,6 +94,15 @@
   flex-direction: column;
   justify-content: center;
   min-height: 172px;
+}
+
+.title-section .titles {
+  justify-self: center;
+  align-items: center;
+}
+
+.title-section + .profile {
+  margin-top: 240px;
 }
 
 .titles h1,
@@ -205,9 +220,15 @@
 
 .page-panel {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   display: grid;
   gap: 32px;
   animation: slideIn 300ms ease forwards;
+}
+
+.app-shell {
+  min-width: 0;
 }
 
 @keyframes slideIn {
@@ -222,6 +243,7 @@
 }
 
 .top-bar {
+  position: relative;
   width: 100%;
   border-bottom: 4px solid var(--accent);
   background: rgba(15, 23, 42, 0.96);
@@ -232,6 +254,33 @@
   justify-content: center;
   gap: 24px;
   padding: 18px 24px;
+}
+
+.top-left-clock {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  color: var(--text-h);
+  line-height: 1;
+}
+
+
+.top-left-clock .time,
+.top-left-clock .date {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-h);
+}
+
+@media (max-width: 520px) {
+  .top-left-clock .date {
+    display: none;
+  }
 }
 
 .tab {

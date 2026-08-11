@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react'
 import './App.css'
+import Clock from './Clock'
 
 function App() {
   const [activePage, setActivePage] = useState<'about' | 'projects' | 'other'>('about')
@@ -7,6 +8,9 @@ function App() {
   return (
     <>
       <header className="top-bar">
+        <div className="top-left-clock">
+          <Clock />
+        </div>
         <nav className="top-bar-nav" aria-label="Main navigation">
           <button
             type="button"

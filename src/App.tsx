@@ -1,47 +1,77 @@
-﻿import './App.css'
+﻿import { useState } from 'react'
+import './App.css'
 
 function App() {
+  const [activePage, setActivePage] = useState<'about' | 'projects' | 'other'>('about')
+
   return (
     <>
+      <header className="top-bar">
+        <nav className="top-bar-nav" aria-label="Main navigation">
+          <button
+            type="button"
+            className={`tab ${activePage === 'about' ? 'active' : ''}`}
+            onClick={() => setActivePage('about')}
+          >
+            ABOUT ME
+          </button>
+          <button
+            type="button"
+            className={`tab ${activePage === 'projects' ? 'active' : ''}`}
+            onClick={() => setActivePage('projects')}
+          >
+            PROJECTS
+          </button>
+          <button
+            type="button"
+            className={`tab ${activePage === 'other' ? 'active' : ''}`}
+            onClick={() => setActivePage('other')}
+          >
+            OTHER
+          </button>
+        </nav>
+      </header>
       <div className="app-shell">
-        <section className="title-section">
-          <aside className="contact-card">
-            <h3>Contact</h3>
-            <dl>
-              <div>
-                <dt>Address</dt>
-                <dd>Tankedraget 3, 2. 1 <br/> 9000 Aalborg, Denmark</dd>
-              </div>
-              <div>
-                <dt>Phone</dt>
-                <dd>
-                  <a href="tel:+45251229">
-                    +45 25 12 29 23
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt>Email</dt>
-                  <a href="mailto:cody@krselectric.com">
-                    cody@krselectric.com
-                  </a>
-              </div>
-              <div>
-                <dt>LinkedIn</dt>
-                <dd>
-                  <a href="https://www.linkedin.com/in/cody-jackson-662874191/" target="_blank" rel="noreferrer">
-                    linkedin.com/in/cody-jackson-662874191/
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </aside>
+        <div key={activePage} className="page-panel slide-in-right">
+          {activePage === 'about' ? (
+            <>
+          <section className="title-section">
+            <aside className="contact-card">
+              <h3>Contact</h3>
+              <dl>
+                <div>
+                  <dt>Address</dt>
+                  <dd>Tankedraget 3, 2. 1 <br/> 9000 Aalborg, Denmark</dd>
+                </div>
+                <div>
+                  <dt>Phone</dt>
+                  <dd>
+                    <a href="tel:+45251229">
+                      +45 25 12 29 23
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Email</dt>
+                    <a href="mailto:cody@krselectric.com">
+                      cody@krselectric.com
+                    </a>
+                </div>
+                <div>
+                  <dt>LinkedIn</dt>
+                  <dd>
+                    <a href="https://www.linkedin.com/in/cody-jackson-662874191/" target="_blank" rel="noreferrer">
+                      linkedin.com/in/cody-jackson-662874191/
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </aside>
 
-          <div className="titles">
-            <h1>Cody Jackson</h1>
-            <h2>Software Developer</h2>
-          </div>
-          <div><h2></h2></div>
+            <div className="titles">
+              <h1>Cody Jackson</h1>
+              <h2>Software Developer</h2>
+            </div>
         </section>
 
         <section className="profile">
@@ -53,7 +83,7 @@ function App() {
               I thoroughly enjoy programming and software development.
               I have worked solo and on group projects, having provided my leadership skills when necessary.
               I am currently seeking a position in my field that will allow me to display my skills and work on projects that matter, valuing the opportunity to work on meaningful projects rather than a high salary.
-              I am actively learning the Danish language, have many Danish relatives across the country, and hope to eventually become a Danish citizen.
+              I am actively learning the Danish language, have Danish relatives in every kommune along with half Danish parents, and hope to eventually become a Danish citizen.
             </p>
           </div>
         </section>
@@ -179,6 +209,16 @@ function App() {
             </p>
           </div>
         </section>
+          </>
+          ) : (
+            <section className="blank-page">
+              <div className="section-card">
+                <h3>{activePage === 'projects' ? 'PROJECTS' : 'OTHER'}</h3>
+                <p>This page is currently blank and will be filled in soon.</p>
+              </div>
+            </section>
+          )}
+        </div>
       </div>
     </>
   )

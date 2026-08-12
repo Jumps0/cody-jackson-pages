@@ -31,11 +31,13 @@ const badgerInfoImageNames = [
 ];
 const badgerInfoImages = badgerInfoImageNames.map((name) => `${import.meta.env.BASE_URL}badgerinfo++/${name}`);
 
+const dndCommandImage = `${import.meta.env.BASE_URL}dnd-command.png`;
 
 const thesisPdf = `${import.meta.env.BASE_URL}thesis/OptimizingInputInGenerativeAIPoweredPublicRedesign.pdf`;
 const badgerInfoPdf = `${import.meta.env.BASE_URL}badgerinfo++/BadgerInfo++.A.Layered-Explanation.Extension.for.Web-Tracking.Transparency.pdf`;
 const pdfIcon = `${import.meta.env.BASE_URL}pdf.svg`;
 const githubIcon = `${import.meta.env.BASE_URL}github.svg`;
+const unityIcon = `${import.meta.env.BASE_URL}unity.svg`;
 
 type ProjectLinkProps = {
   icon: ReactElement;
@@ -267,6 +269,31 @@ function ProjectsPage() {
           </div>
         </div>
 
+        <div className="project-card project-large">
+          <div className="project-header-group">
+            <div className="project-header">Project Escher</div>
+            <div className="project-subheader">Capstone project which created a VR puzzle game in the Unity Engine.</div>
+          </div>
+          <div className="project-content">
+            <YouTubeVideo videoUrl="https://www.youtube.com/watch?v=DQ_lG05XAFs" />
+            <div className="project-authors">Authors: Cody Jackson, Sebastien Yokoyama, and Zachary Kruljac</div>
+          </div>
+          <div className="project-footer">
+            <p>
+              Over a period of 1 year, our 3 person team meticulously planned, designed, and implemented a VR 
+              puzzle game in the Unity Game engine for our Capstone project. I acted as the leader of this project,
+              while also handling technical design and implementation.
+            </p>
+            <div className="project-tags">
+              <span className="project-tag" style={{ "--tag-color": "#eecd14" } as CSSProperties}>Capstone Project</span>
+              <span className="project-tag" style={{ "--tag-color": "#16f962" } as CSSProperties}>Team</span>
+              <span className="project-tag" style={{ "--tag-color": "#ec45d0" } as CSSProperties}>Leadership</span>
+              <span className="project-tag" style={{ "--tag-color": "#1678f9" } as CSSProperties}>Unity Game Engine</span>
+              <span className="project-tag" style={{ "--tag-color": "#7369ce" } as CSSProperties}>C#</span>
+            </div>
+          </div>
+        </div>
+
         <div className="project-pair">
           <div className="project-card project-small">
             <div className="project-header-group">
@@ -301,8 +328,16 @@ function ProjectsPage() {
               <div className="project-subheader">A "CS381 Game Engines" class project mixing the gameplay of XCOM and Dungeons & Dragons.</div>
             </div>
             <div className="project-content">
-              <div>TODO</div>
+              <div className="project-media-frame">
+                <img className="project-media-image" src={dndCommandImage} alt="D&D Command gameplay image" />
+              </div>
             <div className="project-links">
+              <ProjectLink
+                icon={<img src={unityIcon} alt="Unity Play icon" />}
+                href="https://play.unity.com/en/games/4e158bbc-758d-467d-bf95-2c883ca4781f/381-dd-command-hotfix"
+                ariaLabel="Play now"
+                color="#38f848"
+              />
               <ProjectLink
                 icon={<img src={githubIcon} alt="Github icon" />}
                 href="https://github.com/Jumps0/CodyJackson010-381-Final-Project"
@@ -355,31 +390,6 @@ function ProjectsPage() {
             <div className="placeholder">Content or image</div>
           </div>
           <div className="project-footer">A short descriptive paragraph about the big project. Explain technologies used, role, and outcome.</div>
-        </div>
-
-        <div className="project-card project-large">
-          <div className="project-header-group">
-            <div className="project-header">Project Escher</div>
-            <div className="project-subheader">Capstone project which created a VR puzzle game in the Unity Engine.</div>
-          </div>
-          <div className="project-content">
-            <YouTubeVideo videoUrl="https://www.youtube.com/watch?v=DQ_lG05XAFs" />
-            <div className="project-authors">Authors: Cody Jackson, Sebastien Yokoyama, and Zachary Kruljac</div>
-          </div>
-          <div className="project-footer">
-            <p>
-              Over a period of 1 year, our 3 person team meticulously planned, designed, and implemented a VR 
-              puzzle game in the Unity Game engine for our Capstone project. I acted as the leader of this project,
-              while also handling technical design and implementation.
-            </p>
-            <div className="project-tags">
-              <span className="project-tag" style={{ "--tag-color": "#eecd14" } as CSSProperties}>Capstone Project</span>
-              <span className="project-tag" style={{ "--tag-color": "#16f962" } as CSSProperties}>Team</span>
-              <span className="project-tag" style={{ "--tag-color": "#ec45d0" } as CSSProperties}>Leadership</span>
-              <span className="project-tag" style={{ "--tag-color": "#1678f9" } as CSSProperties}>Unity Game Engine</span>
-              <span className="project-tag" style={{ "--tag-color": "#7369ce" } as CSSProperties}>C#</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

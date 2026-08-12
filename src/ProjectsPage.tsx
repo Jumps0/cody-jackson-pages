@@ -32,6 +32,8 @@ const badgerInfoImageNames = [
 const badgerInfoImages = badgerInfoImageNames.map((name) => `${import.meta.env.BASE_URL}badgerinfo++/${name}`);
 
 const dndCommandImage = `${import.meta.env.BASE_URL}dnd-command.png`;
+const cogworldImage = `${import.meta.env.BASE_URL}cogworld.png`;
+const bigdataImage = `${import.meta.env.BASE_URL}big-data.png`;
 
 const thesisPdf = `${import.meta.env.BASE_URL}thesis/OptimizingInputInGenerativeAIPoweredPublicRedesign.pdf`;
 const badgerInfoPdf = `${import.meta.env.BASE_URL}badgerinfo++/BadgerInfo++.A.Layered-Explanation.Extension.for.Web-Tracking.Transparency.pdf`;
@@ -301,7 +303,9 @@ function ProjectsPage() {
               <div className="project-subheader">A Unity remake of the hit indie roguelike Cogmind.</div>
             </div>
           <div className="project-content">
-            <div>TODO</div>
+            <div className="project-media-frame">
+                <img className="project-media-image" src={cogworldImage} alt="Cogworld gameplay image" />
+              </div>
             <div className="project-links">
               <ProjectLink
                 icon={<img src={githubIcon} alt="Github icon" />}
@@ -313,7 +317,9 @@ function ProjectsPage() {
           </div>
             <div className="project-footer">
             <p>
-              DESC
+              I worked on this project on-and-off before I started my masters. I really enjoyed the gameplay of the original
+              and wanted to expand it in my own way, starting from scratch in Unity. Utilizing the original sprites and audio
+              I got pretty far into a believable replica, and had a great time developing it too whenever I had the occasional a burst of motivation.
             </p>
             <div className="project-tags">
               <span className="project-tag" style={{ "--tag-color": "#1678f9" } as CSSProperties}>Unity Game Engine</span>
@@ -368,6 +374,53 @@ function ProjectsPage() {
 
         <div className="project-pair">
           <div className="project-card project-small">
+            <div className="project-header-group">
+              <div className="project-header">Twitch Chat Big Data Analysis</div>
+              <div className="project-subheader">Analysis of 'emote' usage in difference Twitch chat livestreams.</div>
+            </div>
+          <div className="project-content">
+            <div className="project-media-frame">
+                <img className="project-media-image" src={bigdataImage} alt="Section of recorded twitch chat data on the channel 'Lirik'" />
+              </div>
+            <div className="project-links">
+              <ProjectLink
+                icon={<img src={githubIcon} alt="Github icon" />}
+                href="https://github.com/Jumps0/CS431-BigData-Project"
+                ariaLabel="View on GitHub"
+                color="#38bdf8"
+              />
+            </div>
+            <div className="project-authors">
+              Authors: Cody Jackson, Zachary Kruljac
+            </div>
+          </div>
+            <div className="project-footer">
+            <p>
+              A team project for the CS431 Big Data class where I analyzed the 'emote' usage across various types of livestreamers
+              on the Twitch platform. Data was collected from live chat, recorded, and analyzed using a python script. I handled
+              the project design, coding, and data collection for this project.
+            </p>
+            <div className="project-tags">
+              <span className="project-tag" style={{ "--tag-color": "#16f962" } as CSSProperties}>Team</span>
+              <span className="project-tag" style={{ "--tag-color": "#ec45d0" } as CSSProperties}>Leadership</span>
+              <span className="project-tag" style={{ "--tag-color": "#f92516" } as CSSProperties}>Python</span>
+              <span className="project-tag" style={{ "--tag-color": "#5cd6f5" } as CSSProperties}>Big Data</span>
+              <span className="project-tag" style={{ "--tag-color": "#64a08c" } as CSSProperties}>Data Analysis</span>
+            </div>
+          </div>
+          </div>
+
+          <div className="project-card project-small">
+            <div className="project-header">Small Project 2</div>
+            <div className="project-content">
+              <div className="placeholder">Content or image</div>
+            </div>
+            <div className="project-footer">Short description for small project 2.</div>
+          </div>
+        </div>
+
+        <div className="project-pair">
+          <div className="project-card project-small">
             <div className="project-header">Small Project 1</div>
             <div className="project-content">
               <div className="placeholder">Content or image</div>
@@ -383,6 +436,7 @@ function ProjectsPage() {
             <div className="project-footer">Short description for small project 2.</div>
           </div>
         </div>
+
 
         <div className="project-card project-large">
           <div className="project-header">Big Project Title</div>

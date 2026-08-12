@@ -51,7 +51,7 @@ function AboutPage() {
             I thoroughly enjoy programming and software development.
             I have worked solo and on group projects, having provided my leadership skills when necessary.
             I am currently seeking a position in my field that will allow me to display my skills and work on projects that matter, valuing the opportunity to work on meaningful projects rather than a high salary.
-            I am actively learning the Danish language, have Danish relatives in every kommune along with half Danish parents, and hope to eventually become a Danish citizen.
+            I am actively learning the Danish language, have Danish relatives in every kommune along with Danish grandparents, and hope to eventually become a Danish citizen.
           </p>
         </div>
       </section>

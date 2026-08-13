@@ -34,6 +34,7 @@ const badgerInfoImages = badgerInfoImageNames.map((name) => `${import.meta.env.B
 const dndCommandImage = `${import.meta.env.BASE_URL}dnd-command.png`;
 const cogworldImage = `${import.meta.env.BASE_URL}cogworld.png`;
 const bigdataImage = `${import.meta.env.BASE_URL}big-data.png`;
+const showcaseVideo = `${import.meta.env.BASE_URL}showcase-video.mp4`;
 
 const thesisPdf = `${import.meta.env.BASE_URL}thesis/OptimizingInputInGenerativeAIPoweredPublicRedesign.pdf`;
 const badgerInfoPdf = `${import.meta.env.BASE_URL}badgerinfo++/BadgerInfo++.A.Layered-Explanation.Extension.for.Web-Tracking.Transparency.pdf`;
@@ -174,6 +175,22 @@ function YouTubeVideo({ videoUrl }: { videoUrl: string }) {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
+      />
+    </div>
+  );
+}
+
+function VideoPlayer({ src, poster, ariaLabel }: { src: string; poster?: string; ariaLabel?: string }) {
+  return (
+    <div className="video-wrapper">
+      <video
+        className="project-media-video"
+        src={src}
+        controls
+        preload="metadata"
+        poster={poster}
+        aria-label={ariaLabel}
+        playsInline
       />
     </div>
   );
@@ -411,14 +428,31 @@ function ProjectsPage() {
           </div>
 
           <div className="project-card project-small">
-            <div className="project-header">Small Project 2</div>
-            <div className="project-content">
-              <div className="placeholder">Content or image</div>
-            </div>
-            <div className="project-footer">Short description for small project 2.</div>
+            <div className="project-header-group">
+              <div className="project-header">Foxhole Machine Learning / Vision</div></div>
+              <div className="project-subheader">Hand labeled / trained player recognition system for the game Foxhole.</div>
+          <div className="project-content">
+              <div className="project-media-frame">
+                <VideoPlayer src={showcaseVideo} ariaLabel="Showcase video" />
+              </div>
           </div>
-        </div>
-
+            <div className="project-footer">
+            <p>
+              In python I created a computer vision script which analyzed frames from the MMO 'Foxhole' then identified and
+              drew boxes around players. I did this by hand labeling screenshots and feeding them into a YoloV8 vision model
+              which I trained on my own hardware. I was pleased by the results and only stopped due to the exponential training time.
+            </p>
+            <div className="project-tags">
+              <span className="project-tag" style={{ "--tag-color": "#ac9aca" } as CSSProperties}>Machine Learning</span>
+              <span className="project-tag" style={{ "--tag-color": "#b9bb32" } as CSSProperties}>Computer Vision</span>
+              <span className="project-tag" style={{ "--tag-color": "#f92516" } as CSSProperties}>Python</span>
+              <span className="project-tag" style={{ "--tag-color": "#f55c9c" } as CSSProperties}>Data Labeling</span>
+              <span className="project-tag" style={{ "--tag-color": "#e256d6" } as CSSProperties}>YoloV8</span>
+            </div>
+          </div>
+          </div>
+          </div>
+        {/*
         <div className="project-pair">
           <div className="project-card project-small">
             <div className="project-header">Small Project 1</div>
@@ -436,8 +470,9 @@ function ProjectsPage() {
             <div className="project-footer">Short description for small project 2.</div>
           </div>
         </div>
+        */}
 
-
+        {/*
         <div className="project-card project-large">
           <div className="project-header">Big Project Title</div>
           <div className="project-content">
@@ -445,7 +480,9 @@ function ProjectsPage() {
           </div>
           <div className="project-footer">A short descriptive paragraph about the big project. Explain technologies used, role, and outcome.</div>
         </div>
+      */}
       </div>
+
     </section>
   );
 }

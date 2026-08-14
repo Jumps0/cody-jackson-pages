@@ -207,7 +207,7 @@ function ProjectsPage() {
         <div className="project-card project-large">
           <div className="project-header-group">
             <div className="project-header">{t({ en: 'Optimizing Input in Generative AI Powered Public Redesign', dk: 'Optimering af input i generativ AI-drevet offentlig redesign' })}</div>
-            <div className="project-subheader">{t({ en: 'Thesis project investigating input methods for Image-to-Image editing in public redesign.', dk: 'Specialeprojekt der undersøger inputmetoder til billede-til-billede-redigering i offentligt redesign.' })}</div>
+            <div className="project-subheader">{t({ en: 'Thesis project investigating input methods for Image-to-Image editing in public redesign.', dk: 'Afhandlingsprojekt der undersøger inputmetoder til billede-til-billede-redigering i offentligt redesign.' })}</div>
           </div>
           <div className="project-content">
             <ImageCarousel images={thesisImages} />
@@ -276,9 +276,10 @@ function ProjectsPage() {
           </div>
           <div className="project-footer">
             <p>
-              During spring 2026 our 6 person team researched existing privacy-centric browser extensions, picking Privacy Badger as our focus,
-              and then expanded the extension to display varying amounts of information, examining how the level and amount of information displayed
-              influences perceived transparency, user engagement, and confidence in managing personal data.
+              {t({ 
+                en: 'During spring 2026 our 6 person team researched existing privacy-centric browser extensions, picking Privacy Badger as our focus, and then expanded the extension to display varying amounts of information, examining how the level and amount of information displayed influences perceived transparency, user engagement, and confidence in managing personal data.', 
+                dk: 'I foråret 2026 undersøgte vores team på 6 personer eksisterende privatlivscentrerede browserudvidelser, valgte Privacy Badger som vores fokus, og udvidede derefter udvidelsen til at vise varierende mængder information. Vi undersøgte, hvordan niveauet og mængden af ​​viste information påvirker opfattet gennemsigtighed, brugerengagement og tillid til håndtering af personoplysninger.' 
+              })}
             </p>
             <div className="project-tags">
               <span className="project-tag" style={{ "--tag-color": "#eecd14" } as CSSProperties}>Thesis Project</span>
@@ -294,7 +295,7 @@ function ProjectsPage() {
 
         <div className="project-card project-large">
           <div className="project-header-group">
-            <div className="project-header">{t({ en: 'Project Escher', dk: 'Projekt Escher' })}</div>
+            <div className="project-header">{t({ en: 'Project Escher', dk: 'Project Escher' })}</div>
             <div className="project-subheader">{t({ en: 'Capstone project which created a VR puzzle game in the Unity Engine.', dk: 'Capstone-projekt, der skabte et VR-puslespil i Unity Engine.' })}</div>
           </div>
           <div className="project-content">
@@ -303,9 +304,10 @@ function ProjectsPage() {
           </div>
           <div className="project-footer">
             <p>
-              Over a period of 1 year, our 3 person team meticulously planned, designed, and implemented a VR 
-              puzzle game in the Unity Game engine for our Capstone project. I acted as the leader of this project,
-              while also handling technical design and implementation.
+              {t({ 
+                en: 'Over a period of 1 year, our 3 person team meticulously planned, designed, and implemented a VR puzzle game in the Unity Game engine for our Capstone project. I acted as the leader of this project, while also handling technical design and implementation.', 
+                dk: 'Over en periode på 1 år planlagde, designede og implementerede vores 3-personers team omhyggeligt et VR-puslespil i Unity-spilmotoren til vores Capstone-projekt. Jeg fungerede som projektleder, samtidig med at jeg håndterede teknisk design og implementering.' 
+              })}
             </p>
             <div className="project-tags">
               <span className="project-tag" style={{ "--tag-color": "#eecd14" } as CSSProperties}>Capstone Project</span>
@@ -321,7 +323,7 @@ function ProjectsPage() {
           <div className="project-card project-small">
             <div className="project-header-group">
               <div className="project-header">Cogworld</div>
-              <div className="project-subheader">A Unity remake of the hit indie roguelike Cogmind.</div>
+              <div className="project-subheader">{t({ en: 'A Unity remake of the hit indie roguelike Cogmind.', dk: 'En Unity-genindspilning af det populære indie-roguelike-spil Cogmind.' })}</div>
             </div>
           <div className="project-content">
             <div className="project-media-frame">
@@ -338,9 +340,10 @@ function ProjectsPage() {
           </div>
             <div className="project-footer">
             <p>
-              I worked on this project on-and-off before I started my masters. I really enjoyed the gameplay of the original
-              and wanted to expand it in my own way, starting from scratch in Unity. Utilizing the original sprites and audio
-              I got pretty far into a believable replica, and had a great time developing it too whenever I had the occasional a burst of motivation.
+              {t({ 
+                en: 'I worked on this project on-and-off before I started my masters. I really enjoyed the gameplay of the original and wanted to expand it in my own way, starting from scratch in Unity. Utilizing the original sprites and audio I got pretty far into a believable replica, and had a great time developing it too whenever I had the occasional a burst of motivation.', 
+                dk: 'Jeg arbejdede på dette projekt fra tid til anden, før jeg startede på min kandidatuddannelse. Jeg nød virkelig gameplayet i originalen og ville gerne udvide det på min egen måde, starte helt fra bunden i Unity. Ved at bruge de originale sprites og lyd kom jeg ret langt i en troværdig kopi, og jeg havde det også sjovt med at udvikle det, når jeg lejlighedsvis fik et udbrud af motivation.' 
+              })}
             </p>
             <div className="project-tags">
               <span className="project-tag" style={{ "--tag-color": "#1678f9" } as CSSProperties}>Unity Game Engine</span>
@@ -352,7 +355,7 @@ function ProjectsPage() {
           <div className="project-card project-small">
             <div className="project-header-group">
               <div className="project-header">D&D Command</div>
-              <div className="project-subheader">A "CS381 Game Engines" class project mixing the gameplay of XCOM and Dungeons & Dragons.</div>
+              <div className="project-subheader">{t({ en: 'A "CS381 Game Engines" class project mixing the gameplay of XCOM and Dungeons & Dragons.', dk: 'Et "CS381 Game Engines"-klasseprojekt, der blander gameplayet fra XCOM og Dungeons & Dragons.' })}</div>
             </div>
             <div className="project-content">
               <div className="project-media-frame">
@@ -373,15 +376,15 @@ function ProjectsPage() {
               />
             </div>
             <div className="project-authors">
-              Authors: Cody Jackson, Zachary Kruljac
+              {t({ en: 'Authors: Cody Jackson, and Zachary Kruljac', dk: 'Forfattere: Cody Jackson og Zachary Kruljac' })}
             </div>
           </div>
             <div className="project-footer">
             <p>
-              A grid based & turn based game that simulates the combat of Dungeons and Dragons (DnD) in a style similar to XCOM 2.
-              A few (2-3) “scenarios” will be given starring different characters facing different enemies in different environments.
-              Each player character can have a different class and abilities along with differing stats that determine the actions they can take during their turn of combat.
-              Dice rolling will decide the outcome of most actions. Most, if not all of this project was coded by me.
+              {t({ 
+                en: 'A grid based & turn based game that simulates the combat of Dungeons and Dragons (DnD) in a style similar to XCOM 2. A few (2-3) “scenarios” will be given starring different characters facing different enemies in different environments. Each player character can have a different class and abilities along with differing stats that determine the actions they can take during their turn of combat. Dice rolling will decide the outcome of most actions. Most, if not all of this project was coded by me.', 
+                dk: 'Et gitterbaseret og turbaseret spil, der simulerer kampene i Dungeons and Dragons (DnD) i en stil, der minder om XCOM 2. Der vil blive givet et par (2-3) "scenarier", hvor forskellige karakterer står over for forskellige fjender i forskellige miljøer. Hver spillerkarakter kan have en forskellig klasse og evner sammen med forskellige statistikker, der bestemmer de handlinger, de kan foretage sig i løbet af deres kamptur. Terningkast vil afgøre resultatet af de fleste handlinger. Det meste, hvis ikke hele, af dette projekt er kodet af mig.' 
+              })}
             </p>
             <div className="project-tags">
               <span className="project-tag" style={{ "--tag-color": "#16f962" } as CSSProperties}>Team</span>
@@ -397,7 +400,7 @@ function ProjectsPage() {
           <div className="project-card project-small">
             <div className="project-header-group">
               <div className="project-header">Twitch Chat Big Data Analysis</div>
-              <div className="project-subheader">Analysis of 'emote' usage in difference Twitch chat livestreams.</div>
+              <div className="project-subheader">{t({ en: 'Analysis of \'emote\' usage in difference Twitch chat livestreams.', dk: 'Analyse af brugen af \'emote\' i forskellige Twitch-chat-livestreams.' })}</div>
             </div>
           <div className="project-content">
             <div className="project-media-frame">
@@ -412,14 +415,15 @@ function ProjectsPage() {
               />
             </div>
             <div className="project-authors">
-              Authors: Cody Jackson, Zachary Kruljac
+              {t({ en: 'Authors: Cody Jackson, and Zachary Kruljac', dk: 'Forfattere: Cody Jackson og Zachary Kruljac' })}
             </div>
           </div>
             <div className="project-footer">
             <p>
-              A team project for the CS431 Big Data class where I analyzed the 'emote' usage across various types of livestreamers
-              on the Twitch platform. Data was collected from live chat, recorded, and analyzed using a python script. I handled
-              the project design, coding, and data collection for this project.
+              {t({ 
+                en: 'A team project for the CS431 Big Data class where I analyzed the \'emote\' usage across various types of livestreamers on the Twitch platform. Data was collected from live chat, recorded, and analyzed using a python script. I handled the project design, coding, and data collection for this project.', 
+                dk: 'Et teamprojekt for CS431 Big Data-klassen, hvor jeg analyserede brugen af \'emote\' på tværs af forskellige typer livestreamere på Twitch-platformen. Data blev indsamlet fra livechat, optaget og analyseret ved hjælp af et Python-script. Jeg håndterede projektdesign, kodning og dataindsamling til dette projekt.' 
+              })}
             </p>
             <div className="project-tags">
               <span className="project-tag" style={{ "--tag-color": "#16f962" } as CSSProperties}>Team</span>
@@ -434,7 +438,7 @@ function ProjectsPage() {
           <div className="project-card project-small">
             <div className="project-header-group">
               <div className="project-header">Foxhole Machine Learning / Vision</div></div>
-              <div className="project-subheader">Hand labeled / trained player recognition system for the game Foxhole.</div>
+              <div className="project-subheader">{t({ en: 'Hand labeled / trained player recognition system for the game Foxhole.', dk: 'Håndmærket/trænet spillergenkendelsessystem til spillet Foxhole.' })}</div>
           <div className="project-content">
               <div className="project-media-frame">
                 <VideoPlayer src={showcaseVideo} ariaLabel="Showcase video" />
@@ -442,9 +446,10 @@ function ProjectsPage() {
           </div>
             <div className="project-footer">
             <p>
-              In python I created a computer vision script which analyzed frames from the MMO 'Foxhole' then identified and
-              drew boxes around players. I did this by hand labeling screenshots and feeding them into a YoloV8 vision model
-              which I trained on my own hardware. I was pleased by the results and only stopped due to the exponential training time.
+              {t({ 
+                en: 'In python I created a computer vision script which analyzed frames from the MMO \'Foxhole\' then identified and drew boxes around players. I did this by hand labeling screenshots and feeding them into a YoloV8 vision model which I trained on my own hardware. I was pleased by the results and only stopped due to the exponential training time.', 
+                dk: 'I Python lavede jeg et computer vision-script, der analyserede billeder fra MMO\'en \'Foxhole\' og derefter identificerede og tegnede bokse omkring spillerne. Jeg gjorde dette ved at mærke screenshots manuelt og indsætte dem i en YoloV8 vision-model, som jeg trænede på min egen hardware. Jeg var tilfreds med resultaterne og stoppede kun på grund af den eksponentielle træningstid.' 
+              })}
             </p>
             <div className="project-tags">
               <span className="project-tag" style={{ "--tag-color": "#ac9aca" } as CSSProperties}>Machine Learning</span>

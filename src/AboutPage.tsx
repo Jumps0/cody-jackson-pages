@@ -1,18 +1,20 @@
+import { useLanguage } from './LanguageProvider';
 function AboutPage() {
+  const { t } = useLanguage();
   return (
     <>
       <section className="title-section">
         <aside className="contact-card">
-          <h3>Contact</h3>
+          <h3>{t({ en: 'Contact', dk: 'Kontakte' })}</h3>
           <dl>
             <div>
-              <dt>Address</dt>
+              <dt>{t({ en: 'Address', dk: 'Adresse' })}</dt>
               <dd>
                 Tankedraget 3, 2. 1 <br /> 9000 Aalborg, Denmark
               </dd>
             </div>
             <div>
-              <dt>Phone</dt>
+              <dt>{t({ en: 'Phone', dk: 'Telefon' })}</dt>
               <dd>
                 <a href="tel:+45251229">+45 25 12 29 23</a>
               </dd>
@@ -38,13 +40,13 @@ function AboutPage() {
 
         <div className="titles">
           <h1>Cody Jackson</h1>
-          <h2>Software Developer</h2>
+          <h2>{t({ en: 'Software Developer', dk: 'Softwareudvikler' })}</h2>
         </div>
       </section>
 
       <section className="profile">
         <div className="section-card">
-          <h3>PROFILE</h3>
+          <h3>{t({ en: 'PROFILE', dk: 'PROFIL' })}</h3>
           <p>
             I am a college educated programming enthusiast with a Masters of Science in Computer Science & Engineering who is proficient in multiple programming languages.
             I have also achieved the rank of Eagle in the Boy Scouts of America.
@@ -58,7 +60,7 @@ function AboutPage() {
 
       <section className="education">
         <div className="section-card">
-          <h3>EDUCATION</h3>
+          <h3>{t({ en: 'EDUCATION', dk: 'UNDERVISNING' })}</h3>
           <div className="education-grid">
             <article className="nested-card">
               <h4>MSc in Computer Science (IT), Aalborg University, Denmark</h4>
@@ -84,7 +86,7 @@ function AboutPage() {
 
       <section className="professional-experience">
         <div className="section-card">
-          <h3>PROFESSIONAL EXPERIENCE</h3>
+          <h3>{t({ en: 'PROFESSIONAL EXPERIENCE', dk: 'PROFESSIONAL ERFARING' })}</h3>
           <article className="nested-card">
             <h4>In-Store Representative, Neptune Retail Solutions, USA</h4>
             <span className="small-year">2021 - 2023</span>
@@ -100,7 +102,7 @@ function AboutPage() {
 
       <section className="other-experience">
         <div className="section-card">
-          <h3>OTHER EXPERIENCE</h3>
+          <h3>{t({ en: 'OTHER EXPERIENCE', dk: 'ANDRE ERFARING' })}</h3>
           <article className="nested-card">
             <h4>Boy Scout/Eagle Scout, Boy Scouts of America, USA</h4>
             <span className="small-year">2011 - 2018</span>
@@ -114,7 +116,7 @@ function AboutPage() {
 
       <section className="certifications">
         <div className="section-card">
-          <h3>CERTIFICATIONS</h3>
+          <h3>{t({ en: 'CERTIFICATIONS', dk: 'CERTIFICERINGER' })}</h3>
           <div className="certification-list">
             <div>
               <a className="section-link" href="https://d.docs.live.net/ff769c34c1c26bb6/Desktop/Job/Certifications/Agile/UC-9f7c2033-7fc1-47e2-bd8a-cf1ea5a070fa.pdf" target="_blank" rel="noreferrer">
@@ -132,7 +134,7 @@ function AboutPage() {
 
       <section className="languages">
         <div className="section-card">
-          <h3>LANGUAGES</h3>
+          <h3>{t({ en: 'LANGUAGES', dk: 'SPROG' })}</h3>
           <a>•	English: Native</a>
           <br />
           <a>•	Danish: Actively Learning (DU3 - MODUL 3)</a>
@@ -143,7 +145,7 @@ function AboutPage() {
 
       <section className="professional-skills">
         <div className="section-card">
-          <h3>PROFESSIONAL SKILLS</h3>
+          <h3>{t({ en: 'PROFESSIONAL SKILLS', dk: 'PROFESSIONAL FÆRDIGHEDER' })}</h3>
           <div className="skills-grid">
             <div className="skill-item"><strong>AI / ML / Coding Agents</strong></div>
             <div className="skill-item"><strong>C/C++</strong></div>
@@ -162,7 +164,7 @@ function AboutPage() {
 
       <section className="profile">
         <div className="section-card">
-          <h3>INTERESTS</h3>
+          <h3>{t({ en: 'INTERESTS', dk: 'INTERESSER' })}</h3>
           <p>
             I deeply enjoy programming, and regularly start new projects when I come up with a unique idea or something that I think would be fun to work on.
             I try to challenge myself by learning new programming languages and what they can be best used for.
@@ -175,7 +177,7 @@ function AboutPage() {
 
       <section className="references">
         <div className="section-card">
-          <h3>REFERENCES</h3>
+          <h3>{t({ en: 'REFERENCES', dk: 'REFERENCER' })}</h3>
           <p>Available on request.</p>
         </div>
       </section>

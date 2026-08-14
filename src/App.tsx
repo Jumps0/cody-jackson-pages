@@ -5,9 +5,11 @@ import AboutPage from './AboutPage'
 import ProjectsPage from './ProjectsPage'
 import OtherPage from './OtherPage'
 import LanguageToggle from './LanguageToggle'
+import { useLanguage } from './LanguageProvider';
 
 function App() {
   const [activePage, setActivePage] = useState<'about' | 'projects' | 'other'>('about')
+  const { t } = useLanguage();
 
   return (
     <>
@@ -21,21 +23,21 @@ function App() {
             className={`tab ${activePage === 'about' ? 'active' : ''}`}
             onClick={() => setActivePage('about')}
           >
-            ABOUT ME
+            {t({ en: 'ABOUT ME', dk: 'OM MIG' })}
           </button>
           <button
             type="button"
             className={`tab ${activePage === 'projects' ? 'active' : ''}`}
             onClick={() => setActivePage('projects')}
           >
-            PROJECTS
+            {t({ en: 'PROJECTS', dk: 'PROJEKTER' })}
           </button>
           <button
             type="button"
             className={`tab ${activePage === 'other' ? 'active' : ''}`}
             onClick={() => setActivePage('other')}
           >
-            OTHER
+            {t({ en: 'OTHER', dk: 'ANDRE' })}
           </button>
         </nav>
         <div className="top-right-lang">

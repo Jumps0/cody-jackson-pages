@@ -4,6 +4,7 @@ import Clock from './Clock'
 import AboutPage from './AboutPage'
 import ProjectsPage from './ProjectsPage'
 import OtherPage from './OtherPage'
+import LanguageToggle from './LanguageToggle'
 
 function App() {
   const [activePage, setActivePage] = useState<'about' | 'projects' | 'other'>('about')
@@ -37,6 +38,9 @@ function App() {
             OTHER
           </button>
         </nav>
+        <div className="top-right-lang">
+          <LanguageToggle />
+        </div>
       </header>
       <div className="app-shell">
         <div key={activePage} className="page-panel slide-in-right">

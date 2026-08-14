@@ -1,5 +1,6 @@
 import { useState, type CSSProperties, type ReactElement } from "react";
 import "./ProjectsPage.css";
+import { useLanguage } from './LanguageProvider';
 
 const thesisImageNames = [
   "process_flow.png",
@@ -73,8 +74,10 @@ function ImageCarousel({ images }: { images: string[] }) {
   const count = images.length;
   const hasMultiple = count > 1;
 
+  const { t } = useLanguage();
+
   if (count === 0) {
-    return <div className="image-carousel-empty">No photos available.</div>;
+    return <div className="image-carousel-empty">{t({ en: 'No photos available.', dk: 'Ingen billeder tilgængelige.' })}</div>;
   }
 
   const prevImage = () => setCurrentIndex((index) => (index - 1 + count) % count);
@@ -197,13 +200,14 @@ function VideoPlayer({ src, poster, ariaLabel }: { src: string; poster?: string;
 }
 
 function ProjectsPage() {
+  const { t } = useLanguage();
   return (
     <section className="projects-page">
       <div className="projects-container">
         <div className="project-card project-large">
           <div className="project-header-group">
-            <div className="project-header">Optimizing Input in Generative AI Powered Public Redesign</div>
-            <div className="project-subheader">Thesis project investigating input methods for Image-to-Image editing in public redesign.</div>
+            <div className="project-header">{t({ en: 'Optimizing Input in Generative AI Powered Public Redesign', dk: 'Optimering af input i generativ AI-drevet offentlig redesign' })}</div>
+            <div className="project-subheader">{t({ en: 'Thesis project investigating input methods for Image-to-Image editing in public redesign.', dk: 'Specialeprojekt der undersøger inputmetoder til billede-til-billede-redigering i offentligt redesign.' })}</div>
           </div>
           <div className="project-content">
             <ImageCarousel images={thesisImages} />
@@ -223,13 +227,14 @@ function ProjectsPage() {
                 color="#38bdf8"
               />
             </div>
-            <div className="project-authors">Authors: Cody Jackson, Farika M.M. Farook, and Ma Shalah</div>
+            <div className="project-authors">{t({ en: 'Authors: Cody Jackson, Farika M.M. Farook, and Ma Shalah', dk: 'Forfattere: Cody Jackson, Farika M.M. Farook og Ma Shalah' })}</div>
           </div>
           <div className="project-footer">
             <p>
-              Over a period of 1 year, our 3 person team researched existing methods of interacting with AI models, identified a specific site to test a future prototype,
-              surveyed users in the area for how they would interact with a redesign AI, then designed, implemented, and tested a multi-modal (Text, Voice, Inpainting, Drag & Drop)
-              prototype allowing users to take a photo of the space and redesign it in real time utilizing the FLUX family of AI models.
+              {t({
+                en: 'Over a period of 1 year, our 3 person team researched existing methods of interacting with AI models, identified a specific site to test a future prototype, surveyed users in the area for how they would interact with a redesign AI, then designed, implemented, and tested a multi-modal (Text, Voice, Inpainting, Drag & Drop) prototype allowing users to take a photo of the space and redesign it in real time utilizing the FLUX family of AI models.',
+                dk: 'Over en periode på 1 år undersøgte vores 3-personers team eksisterende metoder til interaktion med AI-modeller, identificerede et sted til at teste en fremtidig prototype, undersøgte brugere om, hvordan de ville interagere med en redesign-AI, og designede, implementerede og testede en multimodal (Tekst, Tale, Inpainting, Drag & Drop) prototype, der gjorde det muligt for brugere at tage et foto af rummet og redesigne det i realtid ved hjælp af FLUX-familien af AI-modeller.'
+              })}
             </p>
             <div className="project-tags">
               <span className="project-tag" style={{ "--tag-color": "#eecd14" } as CSSProperties}>Thesis Project</span>
@@ -245,8 +250,8 @@ function ProjectsPage() {
 
         <div className="project-card project-large">
           <div className="project-header-group">
-            <div className="project-header">BadgerInfo++: A Layered-Explanation Extension for Web-Tracking Transparency</div>
-            <div className="project-subheader">Semester project investigating how different levels of information display influence user experiences with online privacy via an expanded browser extension.</div>
+            <div className="project-header">{t({ en: 'BadgerInfo++: A Layered-Explanation Extension for Web-Tracking Transparency', dk: 'BadgerInfo++: En lagdelt forklaringsudvidelse til web-tracking gennemsigtighed' })}</div>
+            <div className="project-subheader">{t({ en: 'Semester project investigating how different levels of information display influence user experiences with online privacy via an expanded browser extension.', dk: 'Semestreprojekt der undersøger, hvordan forskellige niveauer af informationsvisning påvirker brugeroplevelser med online privatliv via en udvidet browserudvidelse.' })}</div>
           </div>
           <div className="project-content">
             <ImageCarousel images={badgerInfoImages} />
@@ -266,8 +271,7 @@ function ProjectsPage() {
               />
             </div>
             <div className="project-authors">
-              Authors: Cody Jackson, Jocelyne Chakupewa Mululu, Anastasios “Tasos” Benos, <br></br>
-              Farika Magjabeen Mohamed Farook, Yusrat Adebisi Jimoh, Md Symun Noor
+              {t({ en: 'Authors: Cody Jackson, Jocelyne Chakupewa Mululu, Anastasios “Tasos” Benos, Farika Magjabeen Mohamed Farook, Yusrat Adebisi Jimoh, Md Symun Noor', dk: 'Forfattere: Cody Jackson, Jocelyne Chakupewa Mululu, Anastasios “Tasos” Benos, Farika Magjabeen Mohamed Farook, Yusrat Adebisi Jimoh, Md Symun Noor' })}
             </div>
           </div>
           <div className="project-footer">
@@ -290,12 +294,12 @@ function ProjectsPage() {
 
         <div className="project-card project-large">
           <div className="project-header-group">
-            <div className="project-header">Project Escher</div>
-            <div className="project-subheader">Capstone project which created a VR puzzle game in the Unity Engine.</div>
+            <div className="project-header">{t({ en: 'Project Escher', dk: 'Projekt Escher' })}</div>
+            <div className="project-subheader">{t({ en: 'Capstone project which created a VR puzzle game in the Unity Engine.', dk: 'Capstone-projekt, der skabte et VR-puslespil i Unity Engine.' })}</div>
           </div>
           <div className="project-content">
             <YouTubeVideo videoUrl="https://www.youtube.com/watch?v=DQ_lG05XAFs" />
-            <div className="project-authors">Authors: Cody Jackson, Sebastien Yokoyama, and Zachary Kruljac</div>
+            <div className="project-authors">{t({ en: 'Authors: Cody Jackson, Sebastien Yokoyama, and Zachary Kruljac', dk: 'Forfattere: Cody Jackson, Sebastien Yokoyama og Zachary Kruljac' })}</div>
           </div>
           <div className="project-footer">
             <p>

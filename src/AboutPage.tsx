@@ -169,6 +169,7 @@ function AboutPage() {
             <div className="skill-item"><strong>React</strong></div>
             <div className="skill-item"><strong>Typescript</strong></div>
             <div className="skill-item"><strong>Unity Game Engine</strong></div>
+            <div className="skill-item"><strong>Linux</strong></div>
           </div>
         </div>
       </section>

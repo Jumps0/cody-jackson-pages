@@ -74,7 +74,7 @@ function renderSpecifiedFormula(formula: string): ReactNode[] {
 function renderGeneralFormula(formula: string, individualRolls: (string | number)[]): ReactNode[] {
   const expression = formula.replace(/^rolling\s+/i, '').split('=')[0].trim();
   const diceSides = getDiceSides(expression);
-  const termPattern = /(\d+d\d+|[+-]\s*\d+(?:\.\d+)?)/gi;
+  const termPattern = /(\d*d\d+|[+-]\s*\d+(?:\.\d+)?)/gi;
   const renderExpression = (showIndividualRolls: boolean): ReactNode[] => {
     const parts: ReactNode[] = [];
     let lastIndex = 0;

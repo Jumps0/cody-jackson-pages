@@ -77,6 +77,8 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
 
 .message-body p { color: #c5cdd1; font-size: .85rem; line-height: 1.55; margin: 8px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 
+.message-body .natural-max { color: #65e889; font-weight: 700; text-shadow: 0 0 12px rgba(101, 232, 137, .4); }
+.message-body .natural-one { color: #ff6b6b; font-weight: 700; text-shadow: 0 0 12px rgba(255, 107, 107, .35); }
 .ability { color: #b8c9d0; font-size: .72rem; border-bottom: 1px solid rgba(240, 163, 91, .5); padding-bottom: 2px; }
 
 .roll-value { display: grid; align-content: start; justify-items: end; gap: 4px; color: var(--orange); text-align: right; }

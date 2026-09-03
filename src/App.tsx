@@ -3,7 +3,7 @@ import './App.css'
 import Clock from './Clock'
 import AboutPage from './AboutPage'
 import ProjectsPage from './ProjectsPage'
-import OtherPage from './OtherPage'
+import DnDPage from './DnDPage'
 import LanguageToggle from './LanguageToggle'
 import { useLanguage } from './LanguageProvider';
 
@@ -51,7 +51,7 @@ function App() {
           ) : activePage === 'projects' ? (
             <ProjectsPage />
           ) : (
-            <OtherPage />
+            <DnDPage />
           )}
         </div>
       </div>

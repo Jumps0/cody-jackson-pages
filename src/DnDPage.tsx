@@ -2,6 +2,50 @@ import { useMemo, useState, type ReactNode } from 'react';
 import ChatData from './assets/chatdata.json';
 import './DnDPage.css';
 
+const profilePictureFiles = import.meta.glob('./assets/dnd-pfps/*.png', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
+
+// Assign a token filename to each sender as the player identities are confirmed.
+const playerProfilePictures: Record<string, string> = {
+  'Hypae\'Tia "Hype"': 'token_hypaetia',
+  'Adrian of Ceylor': 'token_adrian',
+  'AJ (DM)': 'token_dm',
+  'Akta the Optimal': 'token_akta',
+  'Algernon': 'token_algernon',
+  'Denellon': 'token_denellon',
+  'Imogen / Agnes': 'token_agnes',
+  'Lyndon': 'token_lyndon',
+  'Thalai': 'token_thalai',
+  'Traymon "Tray"': 'token_tray',
+};
+
+function getProfilePicture(sender: string): string | undefined {
+  const filename = playerProfilePictures[sender];
+  if (!filename) return undefined;
+  const normalizedFilename = filename.endsWith('.png') ? filename : `${filename}.png`;
+  return profilePictureFiles[`./assets/dnd-pfps/${normalizedFilename}`];
+}
+
+function renderMessageAuthor(sender: string): ReactNode {
+  const profilePicture = getProfilePicture(sender);
+  return <div className={`message-author${sender === 'AJ (DM)' ? ' dm-author' : ''}`}>
+    {profilePicture && <img src={profilePicture} alt="" />}
+    <h3>{sender}</h3>
+  </div>;
+}
+
+function parseArchiveTimestamp(timestamp: string): Date {
+  const parsedTimestamp = new Date(`${timestamp} GMT+0100`); // Currently does not account for Daylight savings time. I feel like it may be more trouble than it's worth.
+  return Number.isNaN(parsedTimestamp.getTime()) ? new Date(timestamp) : parsedTimestamp;
+}
+
+function formatMessageTimestamp(timestamp: string): string {
+  const date = parseArchiveTimestamp(timestamp);
+  if (Number.isNaN(date.getTime())) return timestamp;
+  const datePart = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' }).format(date).replace(',', '');
+  const timePart = new Intl.DateTimeFormat(undefined, { timeStyle: 'short' }).format(date);
+  return `${datePart}\n${timePart}`;
+}
+
 type RollResult = { total?: string | number };
 type RollData = {
   formula?: string;
@@ -253,7 +297,7 @@ function DnDPage() {
     const minimum = minRoll === '' ? undefined : Number(minRoll);
     const maximum = maxRoll === '' ? undefined : Number(maxRoll);
     return messages.filter((message) => {
-      const parsedDate = new Date(message.timestamp);
+      const parsedDate = parseArchiveTimestamp(message.timestamp);
       const messageDay = Number.isNaN(parsedDate.getTime()) ? '' : [parsedDate.getFullYear(), parsedDate.getMonth() + 1, parsedDate.getDate()]
         .map((part) => String(part).padStart(2, '0')).join('-');
       const rolls = getRolls(message);
@@ -303,10 +347,10 @@ function DnDPage() {
           <fieldset className="user-filter"><legend>Players ({selectedUsers.length || 'all'})</legend><div className="user-list">{users.map((user) => <label key={user} className="user-option"><input type="checkbox" checked={selectedUsers.includes(user)} onChange={() => toggleUser(user)} /><span>{user}</span></label>)}</div></fieldset>
         </aside>
         <section className="dnd-results">
-          <div className="results-toolbar"><div><strong>{filteredMessages.length.toLocaleString()}</strong> matching messages <span className="muted">/ {messages.length.toLocaleString()} total</span></div><span className="page-status">Page {currentPage + 1} of {pageCount}</span></div>
+          <div className="results-toolbar"><div><strong>{filteredMessages.length.toLocaleString()}</strong> matching messages <span className="muted">/ {messages.length.toLocaleString()} total</span></div><div className="page-navigation"><span className="page-status">Page {currentPage + 1} of {pageCount}</span><div className="pagination pagination-top"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div></div></div>
           <div className="message-list">{visibleMessages.map((message, index) => <article className="chat-message" key={`${message.timestamp}-${message.sender}-${currentPage}-${index}`}>
-            <div className="message-meta"><time>{message.timestamp}</time><span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
-            <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header"><h3>{message.sender}</h3></div>{renderAbilityEmbed(message)}</> : <><h3>{message.sender}</h3>{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
+            <div className="message-meta"><time dateTime={parseArchiveTimestamp(message.timestamp).toISOString()}>{formatMessageTimestamp(message.timestamp)}</time><span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
+            <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header">{renderMessageAuthor(message.sender)}</div>{renderAbilityEmbed(message)}</> : <>{renderMessageAuthor(message.sender)}{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
             {isRollMessage(message) && <div className="roll-value"><span>RESULT</span><strong>{getRolls(message).join(' / ') || 'No result'}</strong></div>}
           </article>)}{visibleMessages.length === 0 && <div className="empty-state"><strong>No messages found</strong><span>Try widening your filters or clearing the search.</span></div>}</div>
           <div className="pagination"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div>

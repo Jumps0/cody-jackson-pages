@@ -63,6 +63,8 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
 
 .results-toolbar { padding: 15px 18px; border-bottom: 1px solid var(--line); font-size: .82rem; }
 
+.page-navigation { display: flex; align-items: center; gap: 12px; }
+
 .muted, .page-status { color: var(--muted); }
 
 .message-list { display: grid; }
@@ -71,9 +73,19 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
 
 .message-meta { display: grid; align-content: start; gap: 7px; color: var(--muted); font-size: .72rem; line-height: 1.35; }
 
+.message-meta time { white-space: pre-line; }
+
 .message-type { color: var(--orange); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
 
 .message-body h3 { font-size: .95rem; margin: 0 0 3px; }
+
+.message-author { display: flex; align-items: center; gap: 9px; min-width: 0; }
+
+.message-author img { width: 34px; height: 34px; flex: 0 0 34px; border: 1px solid var(--line); border-radius: 50%; object-fit: cover; }
+
+.message-author h3 { min-width: 0; overflow-wrap: anywhere; }
+
+.message-author.dm-author h3 { color: #458a58; }
 
 .message-body p { color: #c5cdd1; font-size: .85rem; line-height: 1.55; margin: 8px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 
@@ -115,6 +127,8 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
 
 .pagination { justify-content: flex-end; padding: 15px 18px; }
 
+.pagination-top { padding: 0; }
+
 .pagination button { border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; padding: 8px 13px; font: inherit; font-size: .75rem; }
 
 .pagination button:hover:not(:disabled) { border-color: var(--orange); color: var(--orange); }
@@ -129,4 +143,6 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
   .message-meta { grid-column: 1 / -1; display: flex; justify-content: space-between; }
   .roll-value { grid-column: 2; grid-row: 2; }
   .message-body { min-width: 0; }
+  .results-toolbar { align-items: flex-start; flex-wrap: wrap; }
+  .page-navigation { margin-left: auto; }
 }

@@ -17,10 +17,43 @@ type ChatMessage = {
   content: string | null;
   adventure?: string;
   roll_data?: RollData | null;
+  raw_html?: string;
+  ability_embed?: AbilityEmbed;
+};
+
+type AbilityRoll = {
+  total?: string | number;
+  individual_rolls?: (string | number)[];
+  modifier?: string | number | null;
+  formula?: string;
+  type?: string;
+  critical?: boolean;
+};
+
+type AbilityEmbed = {
+  type?: string;
+  name?: string;
+  subtitle?: string;
+  level?: number;
+  casting_time?: string;
+  range?: string;
+  components?: string;
+  duration?: string | null;
+  description?: string | null;
+  save_dc?: number | null;
+  school?: string;
+  rolls?: AbilityRoll[];
+  modifier?: string | number | null;
+  attacks?: AbilityRoll[];
+  damage?: AbilityRoll[];
+  attack_roll?: AbilityRoll | null;
+  damage_roll?: AbilityRoll[];
+  details?: Record<string, unknown>;
 };
 
 const messages = (ChatData as unknown as { messages: ChatMessage[] }).messages;
 const pageSize = 100;
+const scrollToTopOnPagination = true;
 
 function getRolls(message: ChatMessage): number[] {
   const rolls = message.roll_data?.results?.map((roll) => Number(roll.total)).filter(Number.isFinite) ?? [];
@@ -43,6 +76,89 @@ function getDiceSides(formula: string): number[] {
 
 function getNaturalClass(value: number, dieSides: number | undefined): string {
   return value === 1 ? 'natural-one' : value === dieSides ? 'natural-max' : '';
+}
+
+function cleanEmbedText(value: string): string {
+  return value.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
+}
+
+function getEmbedDescription(message: ChatMessage): string {
+  if (message.ability_embed?.description) return cleanEmbedText(message.ability_embed.description);
+  const descriptionMatch = message.raw_html?.match(/sheet-description">([\s\S]*?)<\/span>\s*<\/div>/i);
+  return descriptionMatch ? cleanEmbedText(descriptionMatch[1]) : '';
+}
+
+function formatDuration(duration: string | null | undefined): string {
+  if (!duration) return '';
+  const normalized = duration.replace(/\s+/g, ' ').trim();
+  if (/concentration/i.test(normalized)) {
+    const cleaned = normalized.replace(/\bconcentration\b/gi, '').replace(/[\s,;:]+/g, ' ').trim();
+    return cleaned ? `${cleaned} (Concentration)` : 'Concentration';
+  }
+  return normalized;
+}
+
+function renderAbilityRoll(roll: AbilityRoll, label: string, index: number): ReactNode {
+  const total = roll.total ?? '—';
+  const modifierValue = roll.modifier == null || roll.modifier === '' ? null : Number(roll.modifier);
+  const individualRolls = Array.isArray(roll.individual_rolls) ? roll.individual_rolls.map((item) => Number(item)).filter(Number.isFinite) : [];
+  const formula = typeof roll.formula === 'string' ? roll.formula.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() : '';
+  const dieSides = formula ? getDiceSides(formula) : [];
+  const detailParts: ReactNode[] = [];
+
+  individualRolls.forEach((value, rollIndex) => {
+    if (detailParts.length > 0) detailParts.push(' + ');
+    const className = getNaturalClass(value, dieSides[rollIndex]);
+    detailParts.push(<span key={`${label}-die-${index}-${rollIndex}`} className={className}>({value})</span>);
+  });
+
+  if (modifierValue !== null) {
+    if (detailParts.length > 0) detailParts.push(' + ');
+    detailParts.push(String(modifierValue));
+  }
+
+  return <div className="ability-roll" key={`${label}-${index}-${String(total)}`}>
+    <span className="ability-roll-label">{label}</span>
+    <strong>{total}</strong>
+    {detailParts.length > 0 && <span className="ability-roll-detail">{detailParts}</span>}
+    {roll.type && <span className="ability-roll-type">{roll.type}</span>}
+    {formula && <span className="ability-roll-formula">{formula}</span>}
+  </div>;
+}
+
+function renderAbilityEmbed(message: ChatMessage): ReactNode {
+  const embed = message.ability_embed;
+  if (!embed) return null;
+  const description = getEmbedDescription(message);
+  const skillRolls = embed.rolls && embed.rolls.length > 0 ? embed.rolls : [];
+  const attackRolls = embed.attacks && embed.attacks.length > 0 ? embed.attacks : embed.attack_roll ? [embed.attack_roll] : [];
+  const damageRolls = embed.damage && embed.damage.length > 0 ? embed.damage : embed.damage_roll ?? [];
+  const shouldShowUnnamedAbility = !embed.name && attackRolls.length === 0 && !(skillRolls.length > 0) && !(damageRolls.length > 0 && !attackRolls.length);
+  const details = [
+    ['Casting time', embed.casting_time],
+    ['Range', embed.range],
+    ['Components', embed.components?.replace(/\s+/g, ' ').trim()],
+    ['Duration', formatDuration(embed.duration)],
+    ['Save DC', embed.save_dc == null ? '' : String(embed.save_dc)],
+    ['Target', embed.details && typeof embed.details.target === 'string' ? String(embed.details.target) : ''],
+  ].filter(([, value]) => value);
+
+  return <div className="ability-card">
+    <div className="ability-card-heading">
+      <div className="ability-card-title">
+        <span className="ability-kind">{embed.type || 'ability'}</span>
+        {embed.name ? <span className="ability-name">{embed.name}</span> : shouldShowUnnamedAbility && <span className="ability-name">Unnamed ability</span>}
+        {embed.subtitle && <span className="ability-subtitle">{embed.subtitle}</span>}
+      </div>
+      {(embed.school || embed.level != null) && <span className="ability-level">{[embed.school, embed.level != null ? `Level ${embed.level}` : ''].filter(Boolean).join(' / ')}</span>}
+    </div>
+    <dl className="ability-details">{details.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+    {skillRolls.length > 0 && <div className="ability-rolls">{skillRolls.map((roll, index) => renderAbilityRoll(roll, skillRolls.length > 1 ? `Roll ${index + 1}` : 'Roll', index))}</div>}
+    {attackRolls.length > 0 && <div className="ability-rolls">{attackRolls.map((roll, index) => renderAbilityRoll(roll, attackRolls.length > 1 ? `Attack ${index + 1}` : 'Attack', index))}</div>}
+    {damageRolls.length > 0 && <div className="ability-rolls">{damageRolls.map((roll, index) => renderAbilityRoll(roll, damageRolls.length > 1 ? `Damage ${index + 1}` : 'Damage', index))}</div>}
+    {description && <p className="ability-description">{description}</p>}
+  </div>;
 }
 
 function renderSpecifiedFormula(formula: string): ReactNode[] {
@@ -153,6 +269,10 @@ function DnDPage() {
   const pageCount = Math.max(1, Math.ceil(filteredMessages.length / pageSize));
   const currentPage = Math.min(page, pageCount - 1);
   const visibleMessages = filteredMessages.slice(currentPage * pageSize, (currentPage + 1) * pageSize);
+  const changePage = (nextPage: number) => {
+    setPage(nextPage);
+    if (scrollToTopOnPagination) window.scrollTo(0, 0);
+  };
   const updateFilter = (update: () => void) => { update(); setPage(0); };
   const toggleUser = (user: string) => updateFilter(() => setSelectedUsers((current) => current.includes(user) ? current.filter((item) => item !== user) : [...current, user]));
   const resetFilters = () => {
@@ -186,10 +306,10 @@ function DnDPage() {
           <div className="results-toolbar"><div><strong>{filteredMessages.length.toLocaleString()}</strong> matching messages <span className="muted">/ {messages.length.toLocaleString()} total</span></div><span className="page-status">Page {currentPage + 1} of {pageCount}</span></div>
           <div className="message-list">{visibleMessages.map((message, index) => <article className="chat-message" key={`${message.timestamp}-${message.sender}-${currentPage}-${index}`}>
             <div className="message-meta"><time>{message.timestamp}</time><span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
-            <div className="message-body"><h3>{message.sender}</h3>{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></div>
+            <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header"><h3>{message.sender}</h3></div>{renderAbilityEmbed(message)}</> : <><h3>{message.sender}</h3>{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
             {isRollMessage(message) && <div className="roll-value"><span>RESULT</span><strong>{getRolls(message).join(' / ') || 'No result'}</strong></div>}
           </article>)}{visibleMessages.length === 0 && <div className="empty-state"><strong>No messages found</strong><span>Try widening your filters or clearing the search.</span></div>}</div>
-          <div className="pagination"><button type="button" onClick={() => setPage((current) => Math.max(0, current - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => setPage((current) => Math.min(pageCount - 1, current + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div>
+          <div className="pagination"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div>
         </section>
       </section>
     </main>

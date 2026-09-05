@@ -53,7 +53,7 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
 
 .user-filter { border-top: 1px solid var(--line); padding-top: 17px; margin-top: 4px; }
 
-.user-list { display: grid; gap: 7px; max-height: 230px; overflow-y: auto; }
+.user-list { display: grid; gap: 7px; }
 
 .user-option { display: flex; align-items: center; gap: 8px; color: #c6d0d5; font-size: .82rem; cursor: pointer; }
 

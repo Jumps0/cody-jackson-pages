@@ -68,6 +68,7 @@ type ChatMessage = {
 type AbilityRoll = {
   total?: string | number;
   individual_rolls?: (string | number)[];
+  modifiers?: { value?: string | number; label?: string }[];
   modifier?: string | number | null;
   formula?: string;
   type?: string;
@@ -90,7 +91,7 @@ type AbilityEmbed = {
   modifier?: string | number | null;
   attacks?: AbilityRoll[];
   damage?: AbilityRoll[];
-  attack_roll?: AbilityRoll | null;
+  attack_roll?: AbilityRoll | AbilityRoll[] | null;
   damage_roll?: AbilityRoll[];
   details?: Record<string, unknown>;
 };
@@ -171,12 +172,18 @@ function renderAbilityRoll(roll: AbilityRoll, label: string, index: number): Rea
   </div>;
 }
 
+function getAbilityRolls(primaryRolls: AbilityRoll[] | undefined, fallbackRolls: AbilityRoll | AbilityRoll[] | null | undefined): AbilityRoll[] {
+  if (primaryRolls && primaryRolls.length > 0) return primaryRolls;
+  if (!fallbackRolls) return [];
+  return Array.isArray(fallbackRolls) ? fallbackRolls : [fallbackRolls];
+}
+
 function renderAbilityEmbed(message: ChatMessage): ReactNode {
   const embed = message.ability_embed;
   if (!embed) return null;
   const description = getEmbedDescription(message);
   const skillRolls = embed.rolls && embed.rolls.length > 0 ? embed.rolls : [];
-  const attackRolls = embed.attacks && embed.attacks.length > 0 ? embed.attacks : embed.attack_roll ? [embed.attack_roll] : [];
+  const attackRolls = getAbilityRolls(embed.attacks, embed.attack_roll);
   const damageRolls = embed.damage && embed.damage.length > 0 ? embed.damage : embed.damage_roll ?? [];
   const shouldShowUnnamedAbility = !embed.name && attackRolls.length === 0 && !(skillRolls.length > 0) && !(damageRolls.length > 0 && !attackRolls.length);
   const details = [
@@ -232,7 +239,10 @@ function renderSpecifiedFormula(formula: string): ReactNode[] {
 }
 
 function renderGeneralFormula(formula: string, individualRolls: (string | number)[]): ReactNode[] {
-  const expression = formula.replace(/^rolling\s+/i, '').split('=')[0].trim();
+  const formulaText = formula.replace(/^rolling\s+/i, '').split('=')[0].trim();
+  const expressionMatch = formulaText.match(/^((?:\d*d\d+|[+-]\s*\d+(?:\.\d+)?)(?:\s*[+-]\s*(?:\d*d\d+|\d+(?:\.\d+)?))*)(?:\s+(.*))?$/i);
+  const expression = expressionMatch?.[1] || formulaText;
+  const expressionLabel = expressionMatch?.[2] || '';
   const diceSides = getDiceSides(expression);
   const termPattern = /(\d*d\d+|[+-]\s*\d+(?:\.\d+)?)/gi;
   const renderExpression = (showIndividualRolls: boolean): ReactNode[] => {
@@ -269,7 +279,7 @@ function renderGeneralFormula(formula: string, individualRolls: (string | number
     return parts;
   };
 
-  return ['Rolling ', renderExpression(false), ' = ', renderExpression(true)];
+  return ['Rolling ', renderExpression(false), expressionLabel ? ` ${expressionLabel}` : '', ' = ', renderExpression(true)];
 }
 
 function getMessageTypeLabel(type: string): string {

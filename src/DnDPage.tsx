@@ -99,6 +99,13 @@ type AbilityEmbed = {
 const messages = (ChatData as unknown as { messages: ChatMessage[] }).messages;
 const pageSize = 100;
 const scrollToTopOnPagination = true;
+const miscAdventureNames: string[] = ["MergeMini", "NPCMini", "Citadel Puzl", "Challenge"];
+
+function getAdventureCategory(adventure: string | undefined): string | undefined {
+  const normalizedAdventure = adventure?.trim();
+  if (!normalizedAdventure) return undefined;
+  return miscAdventureNames.includes(normalizedAdventure) ? 'Misc' : normalizedAdventure;
+}
 
 function getRolls(message: ChatMessage): number[] {
   const rolls = message.roll_data?.results?.map((roll) => Number(roll.total)).filter(Number.isFinite) ?? [];
@@ -138,7 +145,7 @@ function formatDuration(duration: string | null | undefined): string {
   if (!duration) return '';
   const normalized = duration.replace(/\s+/g, ' ').trim();
   if (/concentration/i.test(normalized)) {
-    const cleaned = normalized.replace(/\bconcentration\b/gi, '').replace(/[\s,;:]+/g, ' ').trim();
+    const cleaned = normalized.replace(/\bconcentration\b/gi, ' ').replace(/[\s,;:]+/g, ' ').trim();
     return cleaned ? `${cleaned} (Concentration)` : 'Concentration';
   }
   return normalized;
@@ -301,7 +308,24 @@ function DnDPage() {
   const [page, setPage] = useState(0);
 
   const users = useMemo(() => [...new Set(messages.map((message) => message.sender))].sort(), []);
-  const adventures = useMemo(() => [...new Set(messages.map((message) => message.adventure?.trim()).filter(Boolean) as string[])].sort(), []);
+  const adventures = useMemo(() => {
+    const adventuresInChronologicalOrder = messages
+      .map((message, index) => ({
+        adventure: getAdventureCategory(message.adventure),
+        date: parseArchiveTimestamp(message.timestamp).getTime(),
+        index,
+      }))
+      .filter((item): item is { adventure: string; date: number; index: number } => Boolean(item.adventure))
+      .sort((left, right) => {
+        if (Number.isNaN(left.date) && Number.isNaN(right.date)) return left.index - right.index;
+        if (Number.isNaN(left.date)) return 1;
+        if (Number.isNaN(right.date)) return -1;
+        return left.date - right.date || left.index - right.index;
+      });
+
+    const uniqueAdventures = [...new Set(adventuresInChronologicalOrder.map((item) => item.adventure))];
+    return [...uniqueAdventures.filter((item) => item !== 'Misc'), ...uniqueAdventures.filter((item) => item === 'Misc')];
+  }, []);
   const filteredMessages = useMemo(() => {
     const query = search.trim().toLowerCase();
     const minimum = minRoll === '' ? undefined : Number(minRoll);
@@ -314,7 +338,7 @@ function DnDPage() {
       return (!query || getSearchText(message).toLowerCase().includes(query)) &&
         (!startDate || messageDay >= startDate) && (!endDate || messageDay <= endDate) &&
         (selectedUsers.length === 0 || selectedUsers.includes(message.sender)) &&
-        (!adventure || message.adventure?.trim() === adventure) &&
+        (!adventure || getAdventureCategory(message.adventure) === adventure) &&
         (minimum === undefined || rolls.some((roll) => roll >= minimum)) &&
         (maximum === undefined || rolls.some((roll) => roll <= maximum));
     });
@@ -359,7 +383,7 @@ function DnDPage() {
         <section className="dnd-results">
           <div className="results-toolbar"><div><strong>{filteredMessages.length.toLocaleString()}</strong> matching messages <span className="muted">/ {messages.length.toLocaleString()} total</span></div><div className="page-navigation"><span className="page-status">Page {currentPage + 1} of {pageCount}</span><div className="pagination pagination-top"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div></div></div>
           <div className="message-list">{visibleMessages.map((message, index) => <article className="chat-message" key={`${message.timestamp}-${message.sender}-${currentPage}-${index}`}>
-            <div className="message-meta"><time dateTime={parseArchiveTimestamp(message.timestamp).toISOString()}>{formatMessageTimestamp(message.timestamp)}</time><span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
+            <div className="message-meta"><time dateTime={parseArchiveTimestamp(message.timestamp).toISOString()}>{formatMessageTimestamp(message.timestamp)}</time>{getAdventureCategory(message.adventure) !== 'Misc' && getAdventureCategory(message.adventure) && <span className="message-adventure">{getAdventureCategory(message.adventure)}</span>}<span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
             <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header">{renderMessageAuthor(message.sender)}</div>{renderAbilityEmbed(message)}</> : <>{renderMessageAuthor(message.sender)}{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
             {isRollMessage(message) && <div className="roll-value"><span>RESULT</span><strong>{getRolls(message).join(' / ') || 'No result'}</strong></div>}
           </article>)}{visibleMessages.length === 0 && <div className="empty-state"><strong>No messages found</strong><span>Try widening your filters or clearing the search.</span></div>}</div>

@@ -1,6 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import ChatData from './assets/chatdata.json';
 import './DnDPage.css';
+import './dicefont/dicefont.css';
 
 const profilePictureFiles = import.meta.glob('./assets/dnd-pfps/*.png', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
 
@@ -130,6 +131,21 @@ function getNaturalClass(value: number, dieSides: number | undefined): string {
   return value === 1 ? 'natural-one' : value === dieSides ? 'natural-max' : '';
 }
 
+function renderDiceFace(value: number, dieSides: number | undefined, key: string): ReactNode {
+  const supportsDiceFont = dieSides !== undefined && [2, 4, 6, 8, 10, 12, 20].includes(dieSides) &&
+    value >= (dieSides === 10 ? 0 : 1) && value <= dieSides;
+  const naturalClass = getNaturalClass(value, dieSides);
+
+  if (!supportsDiceFont) return <span className={naturalClass} key={key}>{value}</span>;
+
+  return <i
+    aria-label={`d${dieSides} rolled ${value}`}
+    className={`dice-glyph df-d${dieSides}-${value} ${naturalClass}`}
+    key={key}
+    role="img"
+  />;
+}
+
 function cleanEmbedText(value: string): string {
   return value.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
@@ -161,8 +177,7 @@ function renderAbilityRoll(roll: AbilityRoll, label: string, index: number): Rea
 
   individualRolls.forEach((value, rollIndex) => {
     if (detailParts.length > 0) detailParts.push(' + ');
-    const className = getNaturalClass(value, dieSides[rollIndex]);
-    detailParts.push(<span key={`${label}-die-${index}-${rollIndex}`} className={className}>({value})</span>);
+    detailParts.push(renderDiceFace(value, dieSides[rollIndex], `${label}-die-${index}-${rollIndex}`));
   });
 
   if (modifierValue !== null) {
@@ -233,8 +248,7 @@ function renderSpecifiedFormula(formula: string): ReactNode[] {
 
     const value = Number(match[2]);
     const dieSidesValue = diceSides[dieIndex];
-    const className = getNaturalClass(value, dieSidesValue);
-    parts.push(<span className={className} key={`${match.index}-${dieIndex}`}>{match[1] || ''}{match[2]}{match[3] || ''}</span>);
+    parts.push(renderDiceFace(value, dieSidesValue, `${match.index}-${dieIndex}`));
     lastIndex = match.index + match[0].length;
     dieIndex += 1;
     match = diePattern.exec(formula);
@@ -268,7 +282,7 @@ function renderGeneralFormula(formula: string, individualRolls: (string | number
           const roll = individualRolls[dieIndex];
           if (roll !== undefined) {
             const value = Number(roll);
-            parts.push(<span key={`${match.index}-${dieIndex}`} className={getNaturalClass(value, diceSides[dieIndex])}>({roll})</span>);
+            parts.push(renderDiceFace(value, diceSides[dieIndex], `${match.index}-${dieIndex}`));
             dieIndex += 1;
             if (rollIndex < diceCount - 1) parts.push('+');
           }

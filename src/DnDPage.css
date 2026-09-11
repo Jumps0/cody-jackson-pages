@@ -93,6 +93,7 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
 
 .message-body .natural-max { color: #65e889; font-weight: 700; text-shadow: 0 0 12px rgba(101, 232, 137, .4); }
 .message-body .natural-one { color: #ff6b6b; font-weight: 700; text-shadow: 0 0 12px rgba(255, 107, 107, .35); }
+.dice-glyph { display: inline-block; font-size: 2em; margin: 0 .08em; vertical-align: -.18em; }
 .has-ability-embed { grid-column: 2 / -1; }
 .ability-card { border-left: 3px solid var(--orange); background: rgba(240, 163, 91, .07); padding: 16px 18px; }
 .ability-message-header { margin: 0 0 10px; }

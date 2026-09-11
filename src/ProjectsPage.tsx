@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactElement } from "react";
 import "./ProjectsPage.css";
-import { useLanguage } from './LanguageProvider';
+import { useLanguage } from './LanguageContext';
 
 const thesisImageNames = [
   "process_flow.png",

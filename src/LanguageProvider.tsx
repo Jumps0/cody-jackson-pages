@@ -1,42 +1,31 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-
-type Lang = 'en' | 'dk';
-
-type TranslationInput = { en: string; dk?: string };
-
-interface LanguageContextType {
-  lang: Lang;
-  setLang: (l: Lang) => void;
-  toggle: () => void;
-  t: (s: TranslationInput) => string;
-}
+import React, { useEffect, useState } from 'react';
+import { LanguageContext, type Lang, type TranslationInput } from './LanguageContext';
 
 const STORAGE_KEY = 'lang';
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+function getInitialLang(): Lang {
+  try {
+    const segs = window.location.pathname.split('/').filter(Boolean);
+    if (segs[segs.length - 1] === 'dk') return 'dk';
+
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'dk' || stored === 'en') return stored;
+  } catch {
+    // Ignore unavailable browser APIs.
+  }
+
+  return 'en';
+}
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLangState] = useState<Lang>('en');
-
-  useEffect(() => {
-    try {
-      const segs = window.location.pathname.split('/').filter(Boolean);
-      const last = segs[segs.length - 1];
-      if (last === 'dk') {
-        setLangState('dk');
-        return;
-      }
-      const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
-      if (stored === 'dk' || stored === 'en') setLangState(stored);
-    } catch (e) {
-      // ignore (SSR or unavailable)
-    }
-  }, []);
+  const [lang, setLangState] = useState<Lang>(getInitialLang);
 
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, lang);
-    } catch {}
+    } catch {
+      // Ignore unavailable browser APIs.
+    }
   }, [lang]);
 
   const setLang = (l: Lang) => {
@@ -56,7 +45,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         const newPath = (base === '/' ? '/' : base) + window.location.search + window.location.hash;
         window.history.replaceState({}, '', newPath);
       }
-    } catch {}
+    } catch {
+      // Ignore unavailable browser APIs.
+    }
   };
 
   const toggle = () => setLang(lang === 'en' ? 'dk' : 'en');
@@ -70,8 +61,3 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   );
 };
 
-export const useLanguage = () => {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error('useLanguage must be used within LanguageProvider');
-  return ctx;
-};

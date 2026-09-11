@@ -5,7 +5,7 @@ import AboutPage from './AboutPage'
 import ProjectsPage from './ProjectsPage'
 import DnDPage from './DnDPage'
 import LanguageToggle from './LanguageToggle'
-import { useLanguage } from './LanguageProvider';
+import { useLanguage } from './LanguageContext';
 
 function App() {
   const [activePage, setActivePage] = useState<'about' | 'projects' | 'other'>('about')

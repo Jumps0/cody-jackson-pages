@@ -1,4 +1,4 @@
-import { useLanguage } from './LanguageProvider';
+import { useLanguage } from './LanguageContext';
 function AboutPage() {
   const { t } = useLanguage();
   return (

@@ -60,6 +60,7 @@ type ChatMessage = {
   sender: string;
   type: string;
   content: string | null;
+  ability_name?: string;
   adventure?: string;
   roll_data?: RollData | null;
   raw_html?: string;
@@ -116,7 +117,36 @@ function getRolls(message: ChatMessage): number[] {
 }
 
 function getSearchText(message: ChatMessage): string {
-  return [message.content, message.roll_data?.check_name, message.roll_data?.formula, message.roll_data?.result]
+  const embed = message.ability_embed;
+  const abilityRolls = [
+    ...(embed?.rolls ?? []),
+    ...getAbilityRolls(embed?.attacks, embed?.attack_roll),
+    ...(embed?.damage ?? []),
+    ...(embed?.damage_roll ?? []),
+  ];
+  const rollText = abilityRolls.flatMap((roll) => [
+    roll.formula,
+    roll.type,
+    ...(roll.individual_rolls ?? []),
+    ...(roll.modifiers ?? []).flatMap((modifier) => [modifier.label, modifier.value]),
+  ]);
+  return [
+    message.content,
+    message.ability_name,
+    message.roll_data?.check_name,
+    message.roll_data?.formula,
+    message.roll_data?.result,
+    embed?.name,
+    embed?.subtitle,
+    embed?.description,
+    embed?.school,
+    embed?.casting_time,
+    embed?.range,
+    embed?.components,
+    embed?.duration,
+    embed?.details && Object.values(embed.details),
+    rollText,
+  ]
     .filter(Boolean).join(' ');
 }
 
@@ -377,7 +407,7 @@ function DnDPage() {
       <section className="dnd-heading">
         <p className="eyebrow">ARCHIVE / DND HUB</p>
         <h1>Campaign chat archive</h1>
-        <p>Search the table talk, rolls, and moments across the complete chat archive.</p>
+        <p>Search the messages, rolls, and moments across the complete Roll20 chat archive.</p>
       </section>
       <section className="dnd-layout" aria-label="Chat archive explorer">
         <aside className="dnd-filters">

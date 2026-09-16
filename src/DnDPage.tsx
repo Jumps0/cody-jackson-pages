@@ -202,7 +202,6 @@ function formatDuration(duration: string | null | undefined): string {
 
 function renderAbilityRoll(roll: AbilityRoll, label: string, index: number): ReactNode {
   const total = roll.total ?? '—';
-  const modifierValue = roll.modifier == null || roll.modifier === '' ? null : Number(roll.modifier);
   const individualRolls = Array.isArray(roll.individual_rolls) ? roll.individual_rolls.map((item) => Number(item)).filter(Number.isFinite) : [];
   const formula = typeof roll.formula === 'string' ? roll.formula.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() : '';
   const dieSides = formula ? getDiceSides(formula) : [];
@@ -214,6 +213,7 @@ function renderAbilityRoll(roll: AbilityRoll, label: string, index: number): Rea
   });
 
   const modifiers = (roll.modifiers ?? []).filter((modifier) => modifier.value != null && modifier.value !== '');
+  const modifierValue = modifiers.length > 0 || roll.modifier == null || roll.modifier === '' ? null : Number(roll.modifier);
   [...modifiers.map((modifier) => `${modifier.label ? `${modifier.label}: ` : ''}${modifier.value}`), modifierValue === null ? null : String(modifierValue)]
     .filter((modifier): modifier is string => modifier !== null)
     .forEach((modifier) => {

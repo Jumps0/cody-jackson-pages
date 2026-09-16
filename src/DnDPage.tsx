@@ -52,6 +52,7 @@ type RollData = {
   formula?: string;
   result?: string | number;
   individual_rolls?: (string | number)[];
+  dice_groups?: (string | number)[][];
   check_name?: string;
   results?: RollResult[];
 };
@@ -70,6 +71,7 @@ type ChatMessage = {
 type AbilityRoll = {
   total?: string | number;
   individual_rolls?: (string | number)[];
+  dice_groups?: (string | number)[][];
   modifiers?: { value?: string | number; label?: string }[];
   modifier?: string | number | null;
   formula?: string;
@@ -128,6 +130,7 @@ function getSearchText(message: ChatMessage): string {
     roll.formula,
     roll.type,
     ...(roll.individual_rolls ?? []),
+    ...(roll.dice_groups ?? []).flat(),
     ...(roll.modifiers ?? []).flatMap((modifier) => [modifier.label, modifier.value]),
   ]);
   return [
@@ -210,10 +213,13 @@ function renderAbilityRoll(roll: AbilityRoll, label: string, index: number): Rea
     detailParts.push(renderDiceFace(value, dieSides[rollIndex], `${label}-die-${index}-${rollIndex}`));
   });
 
-  if (modifierValue !== null) {
+  const modifiers = (roll.modifiers ?? []).filter((modifier) => modifier.value != null && modifier.value !== '');
+  [...modifiers.map((modifier) => `${modifier.label ? `${modifier.label}: ` : ''}${modifier.value}`), modifierValue === null ? null : String(modifierValue)]
+    .filter((modifier): modifier is string => modifier !== null)
+    .forEach((modifier) => {
     if (detailParts.length > 0) detailParts.push(' + ');
-    detailParts.push(String(modifierValue));
-  }
+      detailParts.push(modifier);
+    });
 
   return <div className="ability-roll" key={`${label}-${index}-${String(total)}`}>
     <span className="ability-roll-label">{label}</span>
@@ -289,17 +295,18 @@ function renderSpecifiedFormula(formula: string): ReactNode[] {
   return parts;
 }
 
-function renderGeneralFormula(formula: string, individualRolls: (string | number)[]): ReactNode[] {
+function renderGeneralFormula(formula: string, individualRolls: (string | number)[], diceGroups: (string | number)[][] = []): ReactNode[] {
   const formulaText = formula.replace(/^rolling\s+/i, '').split('=')[0].trim();
-  const expressionMatch = formulaText.match(/^((?:\d*d\d+|[+-]\s*\d+(?:\.\d+)?)(?:\s*[+-]\s*(?:\d*d\d+|\d+(?:\.\d+)?))*)(?:\s+(.*))?$/i);
+  const expressionMatch = formulaText.match(/^((?:[+-]?\s*\d*d\d+|[+-]\s*\d+(?:\.\d+)?)(?:\s*[+-]\s*(?:\d*d\d+|\d+(?:\.\d+)?))*)(?:\s+(.*))?$/i);
   const expression = expressionMatch?.[1] || formulaText;
   const expressionLabel = expressionMatch?.[2] || '';
   const diceSides = getDiceSides(expression);
-  const termPattern = /(\d*d\d+|[+-]\s*\d+(?:\.\d+)?)/gi;
+  const termPattern = /([+-]?\s*\d*d\d+|[+-]\s*\d+(?:\.\d+)?)/gi;
   const renderExpression = (showIndividualRolls: boolean): ReactNode[] => {
     const parts: ReactNode[] = [];
     let lastIndex = 0;
     let dieIndex = 0;
+    let groupIndex = 0;
     let match = termPattern.exec(expression);
 
     while (match) {
@@ -308,15 +315,20 @@ function renderGeneralFormula(formula: string, individualRolls: (string | number
 
       if (showIndividualRolls && /d/i.test(match[0])) {
         const diceCount = Number(match[0].split('d')[0]) || 1;
-        for (let rollIndex = 0; rollIndex < diceCount; rollIndex += 1) {
-          const roll = individualRolls[dieIndex];
+        const groupRolls = diceGroups[groupIndex] ?? individualRolls.slice(dieIndex, dieIndex + diceCount);
+        const termSides = getDiceSides(match[0]);
+        const operator = match[0].match(/^[+-]/)?.[0];
+        if (operator) parts.push(operator);
+        for (let rollIndex = 0; rollIndex < groupRolls.length; rollIndex += 1) {
+          const roll = groupRolls[rollIndex];
           if (roll !== undefined) {
             const value = Number(roll);
-            parts.push(renderDiceFace(value, diceSides[dieIndex], `${match.index}-${dieIndex}`));
+            parts.push(renderDiceFace(value, termSides[rollIndex] ?? diceSides[dieIndex], `${match.index}-${dieIndex}`));
             dieIndex += 1;
-            if (rollIndex < diceCount - 1) parts.push('+');
+            if (rollIndex < groupRolls.length - 1) parts.push('+');
           }
         }
+        groupIndex += 1;
       } else {
         parts.push(showIndividualRolls ? match[0].replace(/\s/g, '') : match[0]);
       }
@@ -428,7 +440,7 @@ function DnDPage() {
           <div className="results-toolbar"><div><strong>{filteredMessages.length.toLocaleString()}</strong> matching messages <span className="muted">/ {messages.length.toLocaleString()} total</span></div><div className="page-navigation"><span className="page-status">Page {currentPage + 1} of {pageCount}</span><div className="pagination pagination-top"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div></div></div>
           <div className="message-list">{visibleMessages.map((message, index) => <article className="chat-message" key={`${message.timestamp}-${message.sender}-${currentPage}-${index}`}>
             <div className="message-meta"><time dateTime={parseArchiveTimestamp(message.timestamp).toISOString()}>{formatMessageTimestamp(message.timestamp)}</time>{getAdventureCategory(message.adventure) !== 'Misc' && getAdventureCategory(message.adventure) && <span className="message-adventure">{getAdventureCategory(message.adventure)}</span>}<span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
-            <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header">{renderMessageAuthor(message.sender)}</div>{renderAbilityEmbed(message)}</> : <>{renderMessageAuthor(message.sender)}{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
+            <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header">{renderMessageAuthor(message.sender)}</div>{renderAbilityEmbed(message)}</> : <>{renderMessageAuthor(message.sender)}{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls, message.roll_data.dice_groups) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
             {isRollMessage(message) && <div className="roll-value"><span>RESULT</span><strong>{getRolls(message).join(' / ') || 'No result'}</strong></div>}
           </article>)}{visibleMessages.length === 0 && <div className="empty-state"><strong>No messages found</strong><span>Try widening your filters or clearing the search.</span></div>}</div>
           <div className="pagination"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div>

@@ -282,7 +282,7 @@ function ProjectsPage() {
               })}
             </p>
             <div className="project-tags">
-              <span className="project-tag" style={{ "--tag-color": "#eecd14" } as CSSProperties}>Thesis Project</span>
+              <span className="project-tag" style={{ "--tag-color": "#eecd14" } as CSSProperties}>Semester Project</span>
               <span className="project-tag" style={{ "--tag-color": "#16f962" } as CSSProperties}>Team</span>
               <span className="project-tag" style={{ "--tag-color": "#ec45d0" } as CSSProperties}>Leadership</span>
               <span className="project-tag" style={{ "--tag-color": "#686272" } as CSSProperties}>Informative</span>

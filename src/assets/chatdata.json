@@ -1,7 +1,7 @@
 {
   "metadata": {
     "total_messages": 13254,
-    "export_date": "2026-09-16T13:30:58.685501",
+    "export_date": "2026-09-17T09:33:06.365248",
     "unique_senders": 24
   },
   "messages": [
@@ -296832,7 +296832,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult you player--M8YBW2lUx1JYJVjdm3f discord-production\" data-messageid=\"-P1QxOj9PJUHSoShb5GV\" data-playerid=\"-M8YBW2lUx1JYJVjdm3f\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 8:09PM</span><span class=\"by\">Cody (Adrian):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling d20</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">13</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">13</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 8:09PM",
@@ -296885,7 +296885,7 @@
       "content": "Full health, ~3/4ths resources.",
       "roll_data": null,
       "raw_html": "<div class=\"message general\" data-messageid=\"-P1R2navo-2Wt48HKRQY\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/32f092b7f6431733b745feeb99b26db5_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 8:37PM</span><span class=\"by\">Denellon (Ryan M.):</span>Full health, ~3/4ths resources.</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 8:37PM",
@@ -296894,7 +296894,7 @@
       "content": "Adrian Resources --> SP: 6 | L1: 3 | L2: 2 | L3: 3 | L4: 2",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1R2rk6bBBuzJ4KRAMd\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 8:37PM</span><span class=\"by\">Cody (Adrian):</span>Adrian Resources --&gt; SP: 6 | L1: 3 | L2: 2 | L3: 3 | L4: 2</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 8:38PM",
@@ -296903,7 +296903,7 @@
       "content": "missing action surge full on everthing else",
       "roll_data": null,
       "raw_html": "<div class=\"message general\" data-messageid=\"-P1R35OBtXYqMkuW9FfA\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/b28bbb9fd159cd9d054cb0c8234719c0_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 8:38PM</span><span class=\"by\">(Thalai) Jarred:</span>missing action surge full on everthing else</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 8:39PM",
@@ -296969,7 +296969,7 @@
         "formula": "Rolling 1d20+3[Proficiency]+4[wisdom] = (<span class=\"basicdiceroll\">8</span>)+3+4"
       },
       "raw_html": "<div class=\"message general\" data-messageid=\"-P1R5D0MxVkkTxkLNHBe\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_003_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 8:47PM</span><span class=\"by\">Tramon \"Tray\" (Chris):</span><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+3[Proficiency]+4[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;8&lt;/span&gt;)+3+4'>15</span></span>\n</div>\n<div class=\"sheet-advspacer\"></div>\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+3[Proficiency]+4[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;15&lt;/span&gt;)+3+4'>22</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>PERCEPTION <span>(7)</span></span>\n</div>\n</div>\n</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 8:47PM",
@@ -296989,7 +296989,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8NjfXgvpIvvZsyoKlU discord-production\" data-messageid=\"-P1R5E2zOlQrngcpK4u6\" data-playerid=\"-M8NjfXgvpIvvZsyoKlU\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d4</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d4 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">4</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 8:56PM",
@@ -297013,7 +297013,7 @@
         "formula": "Rolling 1d20+5[wisdom] = (<span class=\"basicdiceroll\">6</span>)+5"
       },
       "raw_html": "<div class=\"message general\" data-messageid=\"-P1R73FYWvaztZJQVhLQ\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 8:56PM</span><span class=\"by\">Liam B.:</span><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+5[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;6&lt;/span&gt;)+5'>11</span></span>\n</div>\n<div class=\"sheet-advspacer\"></div>\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+5[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;14&lt;/span&gt;)+5'>19</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>INSIGHT <span>(5)</span></span>\n</div>\n</div>\n</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:00PM",
@@ -297063,7 +297063,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult you player--M8YBW2lUx1JYJVjdm3f discord-production\" data-messageid=\"-P1R9OfvBEIj-k5TGzEN\" data-playerid=\"-M8YBW2lUx1JYJVjdm3f\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:06PM</span><span class=\"by\">Cody (Adrian):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling d20 + d4 + 3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">15</div><div class=\"backing\"></div></div></div>)</div>+<div class=\"dicegrouping\" data-groupindex=\"2\">(<div class=\"diceroll d4 critfail\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div></div>)</div>+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">19</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:27PM",
@@ -297109,7 +297109,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RIE-BJpYeX7xQTq9m\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:44PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">16</div><div class=\"backing\"></div></div></div>)</div>+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">19</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:48PM",
@@ -297118,7 +297118,7 @@
       "content": "lydon resists fire for  hr",
       "roll_data": null,
       "raw_html": "<div class=\"message general\" data-messageid=\"-P1RJAVVl7nFYTfBO7_a\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:48PM</span><span class=\"by\">Liam B.:</span>lydon resists fire for  hr</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:52PM",
@@ -297138,7 +297138,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RJz_a7bMjSVbA4hao\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/32f092b7f6431733b745feeb99b26db5_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:52PM</span><span class=\"by\">Denellon (Ryan M.):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+2</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">20</div><div class=\"backing\"></div></div></div>)</div>+2<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">22</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:52PM",
@@ -297158,7 +297158,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8NgsHxb0vuzauzNsof discord-production\" data-messageid=\"-P1RK21u1IyyEfU1Xq1G\" data-playerid=\"-M8NgsHxb0vuzauzNsof\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/b28bbb9fd159cd9d054cb0c8234719c0_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:52PM</span><span class=\"by\">(Thalai) Jarred:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+5</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">20</div><div class=\"backing\"></div></div></div>)</div>+5<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">25</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:52PM",
@@ -297177,7 +297177,7 @@
         "formula": "Rolling 1d20+2[INIT]  = (<span class=\"basicdiceroll\">7</span>)+2"
       },
       "raw_html": "<div class=\"message general\" data-messageid=\"-P1RK1MhGbHVKQjV1W6t\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:52PM</span><span class=\"by\">Liam B.:</span><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-solo\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+2[INIT]  = (&lt;span class=\"basicdiceroll\"&gt;7&lt;/span&gt;)+2'>9</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>INITIATIVE <span>(2)</span></span>\n</div>\n</div>\n</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:52PM",
@@ -297196,7 +297196,7 @@
         "formula": "Rolling 1d20+2[INIT]  = (<span class=\"basicdiceroll\">15</span>)+2"
       },
       "raw_html": "<div class=\"message general\" data-messageid=\"-P1RK4ZPaU-1MOuCUw8j\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_003_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:52PM</span><span class=\"by\">Tramon \"Tray\" (Chris):</span><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-solo\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+2[INIT]  = (&lt;span class=\"basicdiceroll\"&gt;15&lt;/span&gt;)+2'>17</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>INITIATIVE <span>(2)</span></span>\n</div>\n</div>\n</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:52PM",
@@ -297216,7 +297216,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult you player--M8YBW2lUx1JYJVjdm3f discord-production\" data-messageid=\"-P1RK75q-WUWeQ3T090T\" data-playerid=\"-M8YBW2lUx1JYJVjdm3f\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:52PM</span><span class=\"by\">Cody (Adrian):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling d20 + 2</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">18</div><div class=\"backing\"></div></div></div>)</div>+2<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">20</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:53PM",
@@ -297236,7 +297236,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RKFKH1vRQ8m3NJJUj\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:53PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">13</div><div class=\"backing\"></div></div></div>)</div>+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">16</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:53PM",
@@ -297278,7 +297278,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RKKZU0NrEbIwm-823\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 9:53PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+2</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div>+2<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">6</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 9:53PM",
@@ -297298,7 +297298,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RLaJweOPH9ytf308Y\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+10</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">14</div><div class=\"backing\"></div></div></div>)</div>+10<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">24</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:00PM",
@@ -297318,7 +297318,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RLwzvxMiTNoR0Ebs2\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/32f092b7f6431733b745feeb99b26db5_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:00PM</span><span class=\"by\">Denellon (Ryan M.):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">12</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:00PM",
@@ -297338,7 +297338,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RM3ThV8WGqhrTvnS9\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">16</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">24</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:00PM",
@@ -297358,7 +297358,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RMB0Sj68LPC3gFYjZ\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d10+5</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d10\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div></div>)</div>+5<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">7</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:00PM",
@@ -297378,7 +297378,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RMILu2xU1KuK1ZC1x\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">11</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">19</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:00PM",
@@ -297398,7 +297398,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RMKyEkBRF_Szpz9v4\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d10+5</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d10\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div></div>)</div>+5<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">11</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:00PM",
@@ -297418,7 +297418,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RMRx6AChb_cOjiX_v\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">10</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">18</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:03PM",
@@ -297438,7 +297438,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RMU63xgFYBEVlgj1K\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/32f092b7f6431733b745feeb99b26db5_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:03PM</span><span class=\"by\">Denellon (Ryan M.):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d10+5</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d10\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">9</div><div class=\"backing\"></div></div></div>)</div>+5<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">14</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:03PM",
@@ -297458,7 +297458,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RMWTHhdUpoVSqGqn1\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">7</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">15</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:03PM",
@@ -297478,7 +297478,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RM_PVGIaArUSxvRvv\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">7</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">15</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:06PM",
@@ -297498,7 +297498,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RNIBblho-rsAoS5UP\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:06PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+6</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">14</div><div class=\"backing\"></div></div></div>)</div>+6<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">20</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:06PM",
@@ -297507,7 +297507,7 @@
       "content": "DC 16 dex",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RNIU8gbxamG2IUFef\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:06PM</span><span class=\"by\">Cody (Adrian):</span>DC 16 dex</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:06PM",
@@ -297541,7 +297541,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult you player--M8YBW2lUx1JYJVjdm3f discord-production\" data-messageid=\"-P1RNPfyb7B7tNtcbxdX\" data-playerid=\"-M8YBW2lUx1JYJVjdm3f\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 8d6 + 5</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">3</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">3</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6 critfail\" data-origindex=\"2\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6 critfail\" data-origindex=\"3\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"4\"><div class=\"dicon\"><div class=\"didroll\">3</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"5\"><div class=\"dicon\"><div class=\"didroll\">3</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6 critfail\" data-origindex=\"6\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"7\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div></div>)</div>+5<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">22</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:06PM",
@@ -297550,7 +297550,7 @@
       "content": "25 Total",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RNTZsNKZadapI56ik\">25 Total</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:06PM",
@@ -297559,7 +297559,7 @@
       "content": "12 halved",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RNUH5J1X7U1eUfuJA\">12 halved</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:06PM",
@@ -297568,7 +297568,7 @@
       "content": "GOAL: Get hype to anvil --> do thing --> LEAVE",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RNezNXgdp20lRp_Wd\">GOAL: Get hype to anvil --&gt; do thing --&gt; LEAVE</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:06PM",
@@ -297577,7 +297577,7 @@
       "content": "SHES GOT A GUN",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RPJ-NF0cBSv0ZHaAS\">SHES GOT A GUN</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:15PM",
@@ -297597,7 +297597,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RPLbA94GEaMvSvd2x\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:15PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+11</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div></div>)</div>+11<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">13</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:15PM",
@@ -297617,7 +297617,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RPQ6f3HjMpQmUVi0J\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+11</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div></div>)</div>+11<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">13</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:24PM",
@@ -297661,7 +297661,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RUX4kp7q-wajPTtZK\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/32f092b7f6431733b745feeb99b26db5_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:38PM</span><span class=\"by\">Denellon (Ryan M.):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">8</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">16</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:38PM",
@@ -297681,7 +297681,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RUZXhfMdvSBymvU1q\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">13</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">21</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:38PM",
@@ -297701,7 +297701,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RUd5EfJPBVIZEJphx\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d10+5</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d10\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">9</div><div class=\"backing\"></div></div></div>)</div>+5<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">14</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:39PM",
@@ -297721,7 +297721,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RUlXHZNRf1QaJYQ4e\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:39PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d6+1</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div></div>)</div>+1<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">7</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:39PM",
@@ -297745,7 +297745,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RUsLzKJRC1iJjXmGj\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 3d6</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6 critsuccess\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"2\"><div class=\"dicon\"><div class=\"didroll\">5</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">17</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:40PM",
@@ -297765,7 +297765,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RV-aaCD5K-d8vSwLt\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/32f092b7f6431733b745feeb99b26db5_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:40PM</span><span class=\"by\">Denellon (Ryan M.):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">15</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">23</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:40PM",
@@ -297785,7 +297785,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RV0tNhUWCf2sDdM_r\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d10+5</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d10 critfail\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div></div>)</div>+5<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">6</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:44PM",
@@ -297794,7 +297794,7 @@
       "content": "ahh they don't have the move + measure at the same time / the magical SFX because this roll20 game is legacy",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RVt763m5Sev7pvfdT\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:44PM</span><span class=\"by\">Cody (Adrian):</span>ahh they don't have the move + measure at the same time / the magical SFX because this roll20 game is legacy</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:44PM",
@@ -297803,7 +297803,7 @@
       "content": "rip",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RVtGxp0Dsqm1xHObN\">rip</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:50PM",
@@ -297825,7 +297825,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RXLsy7XYnXz5R1HmH\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:50PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 2d20+7</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">5</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d20\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">15</div><div class=\"backing\"></div></div></div>)</div>+7<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">27</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:50PM",
@@ -297845,7 +297845,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RXVj5RVRV6iVnCHpE\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">10</div><div class=\"backing\"></div></div></div>)</div>+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">13</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:50PM",
@@ -297865,7 +297865,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RY1jpkdvOfOtaeZ2f\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+11</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">16</div><div class=\"backing\"></div></div></div>)</div>+11<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">27</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:50PM",
@@ -297891,7 +297891,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RYCxcxePY-JI_23v3\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 4d8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d8\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">5</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"2\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"3\"><div class=\"dicon\"><div class=\"didroll\">7</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">18</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:50PM",
@@ -297911,7 +297911,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RYdlsp1NkdP56IyUc\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+11</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">13</div><div class=\"backing\"></div></div></div>)</div>+11<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">24</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:50PM",
@@ -297931,7 +297931,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RYf_qbTQWW4xYVZjN\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+11</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div></div>)</div>+11<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">17</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:58PM",
@@ -297940,7 +297940,7 @@
       "content": "WIS + Smiths Tools",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RZ7JiMU61CCTNqqkI\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 10:58PM</span><span class=\"by\">Cody (Adrian):</span>WIS + Smiths Tools</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 10:59PM",
@@ -297989,7 +297989,7 @@
       "content": "4 FLAMESTEEL REMAINING",
       "roll_data": null,
       "raw_html": "<div class=\"message general you\" data-messageid=\"-P1RZg2NgnR4S1ihN9UD\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:00PM</span><span class=\"by\">Cody (Adrian):</span>4 FLAMESTEEL REMAINING</div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:09PM",
@@ -298009,7 +298009,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8NgsHxb0vuzauzNsof discord-production\" data-messageid=\"-P1Raa_Yw1gcu6opaPkv\" data-playerid=\"-M8NgsHxb0vuzauzNsof\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/b28bbb9fd159cd9d054cb0c8234719c0_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:09PM</span><span class=\"by\">(Thalai) Jarred:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+2</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">18</div><div class=\"backing\"></div></div></div>)</div>+2<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">20</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:09PM",
@@ -298029,7 +298029,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8Y4yVN27UkmDA1GIQo discord-production\" data-messageid=\"-P1RaaxpJsCnwOtFDsHW\" data-playerid=\"-M8Y4yVN27UkmDA1GIQo\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/32f092b7f6431733b745feeb99b26db5_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:09PM</span><span class=\"by\">Denellon (Ryan M.):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+2</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">14</div><div class=\"backing\"></div></div></div>)</div>+2<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">16</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:09PM",
@@ -298071,7 +298071,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RadWzS1t38FhoGyAs\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:09PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 12d8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d8\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">5</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"2\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"3\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8 critfail\" data-origindex=\"4\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"5\"><div class=\"dicon\"><div class=\"didroll\">7</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"6\"><div class=\"dicon\"><div class=\"didroll\">7</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8 critfail\" data-origindex=\"7\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"8\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"9\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"10\"><div class=\"dicon\"><div class=\"didroll\">5</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"11\"><div class=\"dicon\"><div class=\"didroll\">3</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">49</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:09PM",
@@ -298091,7 +298091,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RasWrJLN3zzRMHRFB\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d6</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">4</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:09PM",
@@ -298111,7 +298111,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RatUaXIEMwkrVKSoG\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d6+1</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div>+1<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">5</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:09PM",
@@ -298131,7 +298131,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1Rb5QFJI4S8PTAhsZH\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+14</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20 critfail\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div></div>)</div>+14<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">15</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:09PM",
@@ -298151,7 +298151,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1Rb8lQozOa71bBHngI\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+14</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">20</div><div class=\"backing\"></div></div></div>)</div>+14<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">34</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:09PM",
@@ -298177,7 +298177,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RbHZejLP2C533dmVH\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 4d6+9</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">3</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"2\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6 critfail\" data-origindex=\"3\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div></div>)</div>+9<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">19</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:13PM",
@@ -298199,7 +298199,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8NgsHxb0vuzauzNsof discord-production\" data-messageid=\"-P1RbSZJWXLzeJC0t3N0\" data-playerid=\"-M8NgsHxb0vuzauzNsof\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/b28bbb9fd159cd9d054cb0c8234719c0_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:13PM</span><span class=\"by\">(Thalai) Jarred:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 2d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d20 critfail\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">13</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:13PM",
@@ -298219,7 +298219,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RbdQ21nv9mJVX0pxu\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:13PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+14</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">16</div><div class=\"backing\"></div></div></div>)</div>+14<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">30</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:13PM",
@@ -298241,7 +298241,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RbfgyFuYyghn_eXmf\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 2d6+9</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">5</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div>+9<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">18</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:14PM",
@@ -298263,7 +298263,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8NgsHxb0vuzauzNsof discord-production\" data-messageid=\"-P1RbkW3XIcIg8Q-7Gab\" data-playerid=\"-M8NgsHxb0vuzauzNsof\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/b28bbb9fd159cd9d054cb0c8234719c0_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:14PM</span><span class=\"by\">(Thalai) Jarred:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 2d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d20\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">18</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">28</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:14PM",
@@ -298285,7 +298285,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RboOHFSDD5cFQHsiH\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:14PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 2d6</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6 critsuccess\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">12</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:15PM",
@@ -298305,7 +298305,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8NgsHxb0vuzauzNsof discord-production\" data-messageid=\"-P1RbzkFSCs7saKLRo-P\" data-playerid=\"-M8NgsHxb0vuzauzNsof\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/b28bbb9fd159cd9d054cb0c8234719c0_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:15PM</span><span class=\"by\">(Thalai) Jarred:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+12</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">14</div><div class=\"backing\"></div></div></div>)</div>+12<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">26</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:15PM",
@@ -298325,7 +298325,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8NgsHxb0vuzauzNsof discord-production\" data-messageid=\"-P1Rc3FfpEPwFjBDvLO3\" data-playerid=\"-M8NgsHxb0vuzauzNsof\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d12+4</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d12\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">9</div><div class=\"backing\"></div></div></div>)</div>+4<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">13</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:15PM",
@@ -298345,7 +298345,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1Rc5d15E25_VW4xYFq\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:15PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+14</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">15</div><div class=\"backing\"></div></div></div>)</div>+14<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">29</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:16PM",
@@ -298367,7 +298367,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8NgsHxb0vuzauzNsof discord-production\" data-messageid=\"-P1Rc8F3cvGAxPuHG8BM\" data-playerid=\"-M8NgsHxb0vuzauzNsof\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/b28bbb9fd159cd9d054cb0c8234719c0_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:16PM</span><span class=\"by\">(Thalai) Jarred:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 2d20+8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">19</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d20\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">10</div><div class=\"backing\"></div></div></div>)</div>+8<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">37</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     },
     {
       "timestamp": "September 13, 2026 11:16PM",
@@ -298389,7 +298389,7 @@
         ]
       },
       "raw_html": "<div class=\"message rollresult player--M8J_eMBPE1OhF911dx- discord-production\" data-messageid=\"-P1RcASrL3OKBrTgiSb4\" data-playerid=\"-M8J_eMBPE1OhF911dx-\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/7e4cf6af887da01d8dabc4dd94474d9b_JDAX.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">September 13, 2026 11:16PM</span><span class=\"by\">AJ C. (GM):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 2d6+9</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">3</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d6\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div></div>)</div>+9<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">14</div></div>",
-      "adventure": ""
+      "adventure": "City in the Clouds"
     }
   ]
 }

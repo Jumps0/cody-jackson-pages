@@ -35,7 +35,7 @@ function renderMessageAuthor(sender: string): ReactNode {
 }
 
 function parseArchiveTimestamp(timestamp: string): Date {
-  const parsedTimestamp = new Date(`${timestamp} GMT+0100`); // Currently does not account for Daylight savings time. I feel like it may be more trouble than it's worth.
+  const parsedTimestamp = new Date(`${timestamp} GMT+0200`); // Currently does not account for Daylight savings time. I feel like it may be more trouble than it's worth.
   return Number.isNaN(parsedTimestamp.getTime()) ? new Date(timestamp) : parsedTimestamp;
 }
 

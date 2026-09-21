@@ -1,6 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import ChatData from './assets/chatdata.json';
-import LandscapeViewer from './LandscapeViewer';
+//import LandscapeViewer from './LandscapeViewer';
 import leftArrowIcon from './assets/icon_arrow_left.png';
 import rightArrowIcon from './assets/icon_arrow_right.png';
 import './DnDPage.css';
@@ -479,7 +479,7 @@ function DnDPage() {
           <section className="dnd-heading">
             <p className="eyebrow">DND HUB / LIVE MAP</p>
             <h1>Live Campaign Map [WIP]</h1>
-            <p>View live and historic travel log of the players many adventures.</p>
+            <p>View a live and historic travel log of the players' many adventures.</p>
           </section>
           {/*
           <div className="landscape-page">

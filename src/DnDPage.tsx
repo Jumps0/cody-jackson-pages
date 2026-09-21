@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import ChatData from './assets/chatdata.json';
+import LandscapeViewer from './LandscapeViewer';
 import leftArrowIcon from './assets/icon_arrow_left.png';
 import rightArrowIcon from './assets/icon_arrow_right.png';
 import './DnDPage.css';
@@ -467,11 +468,30 @@ function DnDPage() {
         </>
       ) : archiveSections[activeSection] === 'Statistics' ? (
         <>
-          <p>Statistics</p>
+          <section className="dnd-heading">
+            <p className="eyebrow">DND HUB / STATISTICS</p>
+            <h1>Campaign Statistics  [WIP]</h1>
+            <p>View various statistics about players and the campaign.</p>
+          </section>
         </>
       ) : (
         <>
-          <p>Live Map</p>
+          <section className="dnd-heading">
+            <p className="eyebrow">DND HUB / LIVE MAP</p>
+            <h1>Live Campaign Map [WIP]</h1>
+            <p>View live and historic travel log of the players many adventures.</p>
+          </section>
+          {/*
+          <div className="landscape-page">
+            <div className="viewer-wrapper">
+              <LandscapeViewer 
+                modelPath="models/landscape.glb"
+                minZoom={5}
+                maxZoom={25}
+              />
+            </div>
+          </div>
+          */}
         </>
       )}
     </main>

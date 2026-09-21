@@ -1,5 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import ChatData from './assets/chatdata.json';
+import leftArrowIcon from './assets/icon_arrow_left.png';
+import rightArrowIcon from './assets/icon_arrow_right.png';
 import './DnDPage.css';
 import './dicefont/dicefont.css';
 
@@ -104,6 +106,7 @@ const messages = (ChatData as unknown as { messages: ChatMessage[] }).messages;
 const pageSize = 100;
 const scrollToTopOnPagination = true;
 const miscAdventureNames: string[] = ["MergeMini", "NPCMini", "Citadel Puzl", "Challenge"];
+const archiveSections = ['Chat Archive', 'Statistics', 'Live Map'];
 
 function getAdventureCategory(adventure: string | undefined): string | undefined {
   const normalizedAdventure = adventure?.trim();
@@ -354,6 +357,7 @@ function isRollMessage(message: ChatMessage): boolean {
 }
 
 function DnDPage() {
+  const [activeSection, setActiveSection] = useState(0);
   const [search, setSearch] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -413,39 +417,63 @@ function DnDPage() {
     setSearch(''); setStartDate(''); setEndDate(''); setSelectedUsers([]);
     setAdventure(''); setMinRoll(''); setMaxRoll(''); setPage(0);
   };
+  const changeSection = (direction: number) => {
+    setActiveSection((current) => (current + direction + archiveSections.length) % archiveSections.length);
+  };
+  const previousSection = archiveSections[(activeSection - 1 + archiveSections.length) % archiveSections.length];
+  const nextSection = archiveSections[(activeSection + 1) % archiveSections.length];
 
   return (
     <main className="dnd-page">
-      <section className="dnd-heading">
-        <p className="eyebrow">ARCHIVE / DND HUB</p>
-        <h1>Campaign chat archive</h1>
-        <p>Search the messages, rolls, and moments across the complete Roll20 chat archive.</p>
-      </section>
-      <section className="dnd-layout" aria-label="Chat archive explorer">
-        <aside className="dnd-filters">
-          <div className="filter-heading"><h2>Filter archive</h2><button type="button" className="text-button" onClick={resetFilters}>Reset</button></div>
-          <label className="filter-field search-field"><span>Search text, ability, or formula</span><input value={search} onChange={(event) => updateFilter(() => setSearch(event.target.value))} placeholder="Try: perception, heal..." /></label>
-          <fieldset><legend>Date range</legend><div className="date-grid">
-            <label className="filter-field"><span>From</span><input type="date" value={startDate} onChange={(event) => updateFilter(() => setStartDate(event.target.value))} /></label>
-            <label className="filter-field"><span>To</span><input type="date" value={endDate} onChange={(event) => updateFilter(() => setEndDate(event.target.value))} /></label>
-          </div></fieldset>
-          <fieldset><legend>Roll result</legend><div className="date-grid">
-            <label className="filter-field"><span>At least</span><input type="number" value={minRoll} onChange={(event) => updateFilter(() => setMinRoll(event.target.value))} placeholder="0" /></label>
-            <label className="filter-field"><span>At most</span><input type="number" value={maxRoll} onChange={(event) => updateFilter(() => setMaxRoll(event.target.value))} placeholder="20" /></label>
-          </div></fieldset>
-          <label className="filter-field"><span>Adventure</span><select value={adventure} onChange={(event) => updateFilter(() => setAdventure(event.target.value))}><option value="">All adventures</option>{adventures.map((item) => <option key={item} value={item}>{item}</option>)}</select></label>
-          <fieldset className="user-filter"><legend>Players ({selectedUsers.length || 'all'})</legend><div className="user-list">{users.map((user) => <label key={user} className="user-option"><input type="checkbox" checked={selectedUsers.includes(user)} onChange={() => toggleUser(user)} /><span>{user}</span></label>)}</div></fieldset>
-        </aside>
-        <section className="dnd-results">
-          <div className="results-toolbar"><div><strong>{filteredMessages.length.toLocaleString()}</strong> matching messages <span className="muted">/ {messages.length.toLocaleString()} total</span></div><div className="page-navigation"><span className="page-status">Page {currentPage + 1} of {pageCount}</span><div className="pagination pagination-top"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div></div></div>
-          <div className="message-list">{visibleMessages.map((message, index) => <article className="chat-message" key={`${message.timestamp}-${message.sender}-${currentPage}-${index}`}>
-            <div className="message-meta"><time dateTime={parseArchiveTimestamp(message.timestamp).toISOString()}>{formatMessageTimestamp(message.timestamp)}</time>{getAdventureCategory(message.adventure) !== 'Misc' && getAdventureCategory(message.adventure) && <span className="message-adventure">{getAdventureCategory(message.adventure)}</span>}<span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
-            <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header">{renderMessageAuthor(message.sender)}</div>{renderAbilityEmbed(message)}</> : <>{renderMessageAuthor(message.sender)}{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls, message.roll_data.dice_groups) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
-            {isRollMessage(message) && <div className="roll-value"><span>RESULT</span><strong>{getRolls(message).join(' / ') || 'No result'}</strong></div>}
-          </article>)}{visibleMessages.length === 0 && <div className="empty-state"><strong>No messages found</strong><span>Try widening your filters or clearing the search.</span></div>}</div>
-          <div className="pagination"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div>
-        </section>
-      </section>
+      <nav className="section-switcher" aria-label="D&D hub sections">
+        <span className="section-neighbor section-neighbor-left">{previousSection}</span>
+        <button type="button" className="section-arrow" onClick={() => changeSection(-1)} aria-label={`Show ${previousSection}`}><img src={leftArrowIcon} alt="" aria-hidden="true" /></button>
+        <strong className="section-current" key={activeSection}>{archiveSections[activeSection]}</strong>
+        <button type="button" className="section-arrow" onClick={() => changeSection(1)} aria-label={`Show ${nextSection}`}><img src={rightArrowIcon} alt="" aria-hidden="true" /></button>
+        <span className="section-neighbor section-neighbor-right">{nextSection}</span>
+      </nav>
+      {archiveSections[activeSection] === 'Chat Archive' ? (
+        <>
+          <section className="dnd-heading">
+            <p className="eyebrow">DND HUB / CHAT ARCHIVE</p>
+            <h1>Campaign chat archive</h1>
+            <p>Search the messages, rolls, and moments across the complete Roll20 chat archive.</p>
+          </section>
+          <section className="dnd-layout" aria-label="Chat archive explorer">
+          <aside className="dnd-filters">
+            <div className="filter-heading"><h2>Filter archive</h2><button type="button" className="text-button" onClick={resetFilters}>Reset</button></div>
+            <label className="filter-field search-field"><span>Search text, ability, or formula</span><input value={search} onChange={(event) => updateFilter(() => setSearch(event.target.value))} placeholder="Try: perception, heal..." /></label>
+            <fieldset><legend>Date range</legend><div className="date-grid">
+              <label className="filter-field"><span>From</span><input type="date" value={startDate} onChange={(event) => updateFilter(() => setStartDate(event.target.value))} /></label>
+              <label className="filter-field"><span>To</span><input type="date" value={endDate} onChange={(event) => updateFilter(() => setEndDate(event.target.value))} /></label>
+            </div></fieldset>
+            <fieldset><legend>Roll result</legend><div className="date-grid">
+              <label className="filter-field"><span>At least</span><input type="number" value={minRoll} onChange={(event) => updateFilter(() => setMinRoll(event.target.value))} placeholder="0" /></label>
+              <label className="filter-field"><span>At most</span><input type="number" value={maxRoll} onChange={(event) => updateFilter(() => setMaxRoll(event.target.value))} placeholder="20" /></label>
+            </div></fieldset>
+            <label className="filter-field"><span>Adventure</span><select value={adventure} onChange={(event) => updateFilter(() => setAdventure(event.target.value))}><option value="">All adventures</option>{adventures.map((item) => <option key={item} value={item}>{item}</option>)}</select></label>
+            <fieldset className="user-filter"><legend>Players ({selectedUsers.length || 'all'})</legend><div className="user-list">{users.map((user) => <label key={user} className="user-option"><input type="checkbox" checked={selectedUsers.includes(user)} onChange={() => toggleUser(user)} /><span>{user}</span></label>)}</div></fieldset>
+          </aside>
+          <section className="dnd-results">
+            <div className="results-toolbar"><div><strong>{filteredMessages.length.toLocaleString()}</strong> matching messages <span className="muted">/ {messages.length.toLocaleString()} total</span></div><div className="page-navigation"><span className="page-status">Page {currentPage + 1} of {pageCount}</span><div className="pagination pagination-top"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div></div></div>
+            <div className="message-list">{visibleMessages.map((message, index) => <article className="chat-message" key={`${message.timestamp}-${message.sender}-${currentPage}-${index}`}>
+              <div className="message-meta"><time dateTime={parseArchiveTimestamp(message.timestamp).toISOString()}>{formatMessageTimestamp(message.timestamp)}</time>{getAdventureCategory(message.adventure) !== 'Misc' && getAdventureCategory(message.adventure) && <span className="message-adventure">{getAdventureCategory(message.adventure)}</span>}<span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
+              <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header">{renderMessageAuthor(message.sender)}</div>{renderAbilityEmbed(message)}</> : <>{renderMessageAuthor(message.sender)}{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls, message.roll_data.dice_groups) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
+              {isRollMessage(message) && <div className="roll-value"><span>RESULT</span><strong>{getRolls(message).join(' / ') || 'No result'}</strong></div>}
+            </article>)}{visibleMessages.length === 0 && <div className="empty-state"><strong>No messages found</strong><span>Try widening your filters or clearing the search.</span></div>}</div>
+            <div className="pagination"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div>
+          </section>
+          </section>
+        </>
+      ) : archiveSections[activeSection] === 'Statistics' ? (
+        <>
+          <p>Statistics</p>
+        </>
+      ) : (
+        <>
+          <p>Live Map</p>
+        </>
+      )}
     </main>
   );
 }

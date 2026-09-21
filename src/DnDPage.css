@@ -9,17 +9,36 @@
   width: 100%;
   min-width: 0;
   margin: 0 auto;
-  padding: 36px 20px 72px;
+  padding: 0px 20px 72px;
   color: var(--ink);
 }
 
 .dnd-heading { margin: 0 0 28px; }
 
+.section-switcher { display: grid; grid-template-columns: minmax(90px, 1fr) 42px minmax(150px, 240px) 42px minmax(90px, 1fr); align-items: center; gap: 12px; margin: 0 auto 10px; max-width: 700px; text-align: center; }
+
+.section-current { color: var(--ink); font-size: 1.3rem; letter-spacing: .12em; text-transform: uppercase; animation: section-current-in .28s ease-out both; }
+
+.section-neighbor { color: #dfe8ed; font-size: .85rem; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.section-arrow { display: grid; place-items: center; width: 42px; height: 34px; border: 1px solid var(--line); background: var(--panel); color: var(--orange); cursor: pointer; font: inherit; font-size: 1.15rem; transition: background-color .18s ease, border-color .18s ease, transform .18s ease; }
+
+.section-arrow img { width: 18px; height: 18px; object-fit: contain; }
+
+.section-arrow:hover { background: var(--panel-light); border-color: var(--orange); }
+
+.section-arrow:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+
+@keyframes section-current-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .eyebrow { color: var(--orange); font-size: .68rem; letter-spacing: .2em; margin: 0 0 8px; }
 
 .dnd-heading h1 { font-size: clamp(2rem, 4vw, 3.6rem); letter-spacing: .01em; margin: 0; }
 
-.dnd-heading > p:last-child { color: var(--muted); margin-top: 8px; }
+.dnd-heading > p:last-child { color: #dfe8ed; margin-top: 8px; }
 
 .dnd-layout { display: grid; grid-template-columns: minmax(0, 370px) minmax(0, 1fr); gap: 22px; align-items: start; min-width: 0; }
 
@@ -140,6 +159,10 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
 
 @media (max-width: 760px) {
   .dnd-page { padding: 26px 12px 50px; }
+  .section-switcher { grid-template-columns: minmax(0, 1fr) 38px minmax(120px, 1.4fr) 38px minmax(0, 1fr); gap: 7px; margin-bottom: 30px; }
+  .section-arrow { width: 38px; height: 32px; }
+  .section-current { font-size: .78rem; }
+  .section-neighbor { font-size: .58rem; }
   .dnd-layout { grid-template-columns: 1fr; }
   .dnd-filters { position: static; }
   .chat-message { grid-template-columns: 1fr auto; gap: 8px 14px; }

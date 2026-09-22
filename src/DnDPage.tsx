@@ -1,10 +1,101 @@
-import { useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import * as echarts from 'echarts';
 import ChatData from './assets/chatdata.json';
+import StatisticsData from './assets/statistics.json';
 //import LandscapeViewer from './LandscapeViewer';
 import leftArrowIcon from './assets/icon_arrow_left.png';
 import rightArrowIcon from './assets/icon_arrow_right.png';
 import './DnDPage.css';
 import './dicefont/dicefont.css';
+
+type ChartOption = echarts.EChartsOption;
+
+const fallbackChartColors = ['#f0a35b', '#6ec6ca', '#e87979', '#a8c77d', '#b59add', '#e4c66a', '#82a6df', '#d78fbd', '#8fc79a', '#d3a176'];
+
+function getPlayerColor(player: string, index = 0): string {
+  const colorName = player;
+  const color = StatisticsData.playerColorScheme[colorName as keyof typeof StatisticsData.playerColorScheme];
+  return color ? color.slice(0, 7) : fallbackChartColors[index % fallbackChartColors.length];
+}
+
+function getCumulativeValues(values: (number | null)[]): (number | null)[] {
+  let total = 0;
+  return values.map((value) => {
+    if (value === null) return null;
+    total += value;
+    return total;
+  });
+}
+
+function getLatestValue(values: (number | null)[]): number {
+  return [...values].reverse().find((value): value is number => value !== null) ?? Number.NEGATIVE_INFINITY;
+}
+
+function StatisticsChart({ option }: { option: ChartOption }) {
+  const chartElement = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!chartElement.current) return;
+    const chart = echarts.init(chartElement.current);
+    chart.setOption(option);
+    const resizeObserver = new ResizeObserver(() => chart.resize());
+    resizeObserver.observe(chartElement.current);
+    return () => {
+      resizeObserver.disconnect();
+      chart.dispose();
+    };
+  }, [option]);
+
+  return <div className="statistics-chart" ref={chartElement} />;
+}
+
+function createAxisOptions(horizontal = false): ChartOption {
+  return {
+    animationDuration: 650,
+    color: fallbackChartColors,
+    textStyle: { fontFamily: 'inherit' },
+    grid: { top: 48, right: 24, bottom: 42, left: horizontal ? 112 : 48, containLabel: true },
+    tooltip: { trigger: 'axis', confine: true },
+    xAxis: { type: horizontal ? 'value' : 'category', axisLabel: { color: '#94a4af', fontSize: 12, interval: horizontal ? 'auto' : 0 }, axisLine: { lineStyle: { color: 'rgba(196, 207, 214, .16)' } }, splitLine: { show: horizontal, lineStyle: { color: 'rgba(196, 207, 214, .09)' } } },
+    yAxis: { type: horizontal ? 'category' : 'value', nameLocation: 'end', nameGap: 30, axisLabel: { color: '#94a4af', fontSize: 12 }, axisLine: { show: false }, splitLine: { show: !horizontal, lineStyle: { color: 'rgba(196, 207, 214, .09)' } } },
+  };
+}
+
+function StatisticsDashboard() {
+  const wealth = Object.entries(StatisticsData.currentPlayerWealth);
+  const downs = Object.entries(StatisticsData.downsByPlayer);
+  const kills = Object.entries(StatisticsData.killsPerAdventure).reverse();
+  const magicItems = StatisticsData.magicItemsOverTime;
+  const hpLevels = StatisticsData.hpPerLevel;
+  const messageShares = Object.entries(StatisticsData.discordMessagesPerPerson).filter(([name]) => name !== 'Total');
+  const messageSharesR20 = Object.entries(StatisticsData.roll20MessagesPerPerson).filter(([name]) => name !== 'Total');
+  const allTimeMessages = StatisticsData.allTimeDiscordMessages;
+  const wealthAxis = createAxisOptions();
+  const horizontalAxis = createAxisOptions(true);
+
+  const wealthOption: ChartOption = { ...wealthAxis, xAxis: { ...wealthAxis.xAxis, data: wealth.map(([name]) => name) }, yAxis: { ...wealthAxis.yAxis, name: 'Gold', nameTextStyle: { color: '#94a4af' } }, series: [{ type: 'bar', data: wealth.map(([name, value], index) => ({ value, itemStyle: { color: getPlayerColor(name, index), borderRadius: [3, 3, 0, 0] } })), barMaxWidth: 34 }] };
+  const downsOption: ChartOption = { ...wealthAxis, xAxis: { ...wealthAxis.xAxis, data: downs.map(([name]) => name) }, yAxis: { ...wealthAxis.yAxis, name: 'Downs', nameTextStyle: { color: '#94a4af' } }, series: [{ type: 'bar', data: downs.map(([name, value], index) => ({ value, itemStyle: { color: getPlayerColor(name, index), borderRadius: [3, 3, 0, 0] } })), barMaxWidth: 34 }] };
+  const killsOption: ChartOption = { ...horizontalAxis, grid: { top: 28, right: 70, bottom: 42, left: 22, containLabel: true }, xAxis: { ...horizontalAxis.xAxis, name: 'Kills', nameGap: 18, nameTextStyle: { color: '#94a4af' } }, yAxis: { ...horizontalAxis.yAxis, data: kills.map(([name]) => name) }, series: [{ type: 'bar', data: kills.map(([, value]) => value), barMaxWidth: 22, itemStyle: { borderRadius: [0, 3, 3, 0], color: '#df6c8f' } }] };
+  const magicOption: ChartOption = { ...wealthAxis, legend: { type: 'scroll', bottom: 0, textStyle: { color: '#94a4af' } }, grid: { top: 48, right: 22, bottom: 58, left: 48, containLabel: true }, xAxis: { ...wealthAxis.xAxis, data: magicItems.adventures }, yAxis: { ...wealthAxis.yAxis, name: 'Items', nameTextStyle: { color: '#94a4af' } }, tooltip: { trigger: 'axis', confine: true }, series: Object.entries(magicItems.players).map(([name, values], index) => ({ name, type: 'line', connectNulls: false, smooth: true, symbolSize: 6, data: getCumulativeValues(values), itemStyle: { color: getPlayerColor(name, index) } })) };
+  const sortedHpPlayers = Object.entries(hpLevels.players).sort(([, left], [, right]) => getLatestValue(right) - getLatestValue(left));
+  const hpOption: ChartOption = { ...wealthAxis, animationDuration: 10000, grid: { top: 48, right: 140, bottom: 58, left: 48, containLabel: true }, xAxis: { ...wealthAxis.xAxis, data: hpLevels.levels.map(String), name: 'Level', nameLocation: 'middle', nameGap: 30 }, yAxis: { ...wealthAxis.yAxis, name: 'HP', nameTextStyle: { color: '#94a4af' } }, tooltip: { order: 'valueDesc', trigger: 'axis', confine: true }, series: sortedHpPlayers.map(([name, values], index) => ({ name, type: 'line', connectNulls: false, smooth: true, showSymbol: false, data: values, itemStyle: { color: getPlayerColor(name, index) }, endLabel: { show: true, formatter: '{a}: {c}', color: '#94a4af' }, labelLayout: { moveOverlap: 'shiftY' }, emphasis: { focus: 'series' } })) };
+  const messageSharesOption: ChartOption = { color: messageShares.map(([name], index) => getPlayerColor(name, index)), tooltip: { trigger: 'item', confine: true, formatter: '{b}<br/>{c} messages ({d}%)' }, legend: { type: 'scroll', orient: 'vertical', right: 0, top: 'middle', textStyle: { color: '#94a4af' } }, series: [{ type: 'pie', radius: ['42%', '72%'], center: ['34%', '50%'], avoidLabelOverlap: true, itemStyle: { borderColor: '#0c151c', borderWidth: 3 }, label: { color: '#e8edf2', formatter: '{b}\n{d}%' }, data: messageShares.map(([name, value]) => ({ name, value, itemStyle: { color: getPlayerColor(name) } })) }] };
+  const messageSharesOptionR20: ChartOption = { color: messageSharesR20.map(([name], index) => getPlayerColor(name, index)), tooltip: { trigger: 'item', confine: true, formatter: '{b}<br/>{c} messages ({d}%)' }, legend: { type: 'scroll', orient: 'vertical', right: 0, top: 'middle', textStyle: { color: '#94a4af' } }, series: [{ type: 'pie', radius: ['42%', '72%'], center: ['34%', '50%'], avoidLabelOverlap: true, itemStyle: { borderColor: '#0c151c', borderWidth: 3 }, label: { color: '#e8edf2', formatter: '{b}\n{d}%' }, data: messageSharesR20.map(([name, value]) => ({ name, value, itemStyle: { color: getPlayerColor(name) } })) }] };
+  const allTimeOption: ChartOption = { ...wealthAxis, grid: { top: 48, right: 22, bottom: 58, left: 48, containLabel: true }, dataZoom: [{ type: 'slider', start: 0, end: 100, height: 18, bottom: 10 }, { type: 'inside', start: 0, end: 100 }], xAxis: { ...wealthAxis.xAxis, data: allTimeMessages.dates, axisLabel: { color: '#94a4af', rotate: 35, interval: 5 } }, yAxis: { ...wealthAxis.yAxis, name: 'Messages', nameTextStyle: { color: '#94a4af' } }, tooltip: { trigger: 'axis', confine: true }, series: [{ type: 'line', data: allTimeMessages.messages, smooth: true, symbol: 'none', lineStyle: { width: 3, color: '#f0a35b' }, areaStyle: { color: 'rgba(240, 163, 91, .12)' } }] };
+
+  const charts = [
+    ['Current player wealth', 'Approximate amount of GP currently held by each player.', wealthOption, 'wide'],
+    ['Downs by player', 'Recorded downs in combat.', downsOption, 'wide'],
+    ['Kills per adventure', 'Number of kills per adventure.', killsOption, 'wide'],
+    ['Magic items over time', 'Unique non-craftable magic items collected per adventure.', magicOption, 'full'],
+    ['HP per level', 'Health point total per player per level.', hpOption, 'full'],
+    ['Discord messages per person', 'Share of Discord messages per person.', messageSharesOption, 'wide'],
+    ['Roll20 messages per person', 'Share of messages in Roll20 per person.', messageSharesOptionR20, 'wide'],
+    ['All-time Discord messages', 'Monthly discord activity from campaign start (May 2020) onward.', allTimeOption, 'full'],
+  ] as const;
+
+  return <section className="statistics-grid" aria-label="Campaign statistics">{charts.map(([title, subtitle, option, size]) => <article className={`statistics-card statistics-card-${size}`} key={title}><header><div><h2>{title}</h2><p>{subtitle}</p></div></header><StatisticsChart option={option} /></article>)}</section>;
+}
 
 const profilePictureFiles = import.meta.glob('./assets/dnd-pfps/*.png', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
 
@@ -359,6 +450,7 @@ function isRollMessage(message: ChatMessage): boolean {
 
 function DnDPage() {
   const [activeSection, setActiveSection] = useState(0);
+  const [sectionDirection, setSectionDirection] = useState<-1 | 1>(1);
   const [search, setSearch] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -419,6 +511,7 @@ function DnDPage() {
     setAdventure(''); setMinRoll(''); setMaxRoll(''); setPage(0);
   };
   const changeSection = (direction: number) => {
+    setSectionDirection(direction < 0 ? -1 : 1);
     setActiveSection((current) => (current + direction + archiveSections.length) % archiveSections.length);
   };
   const previousSection = archiveSections[(activeSection - 1 + archiveSections.length) % archiveSections.length];
@@ -429,7 +522,7 @@ function DnDPage() {
       <nav className="section-switcher" aria-label="D&D hub sections">
         <span className="section-neighbor section-neighbor-left">{previousSection}</span>
         <button type="button" className="section-arrow" onClick={() => changeSection(-1)} aria-label={`Show ${previousSection}`}><img src={leftArrowIcon} alt="" aria-hidden="true" /></button>
-        <strong className="section-current" key={activeSection}>{archiveSections[activeSection]}</strong>
+        <strong className={`section-current section-current-${sectionDirection < 0 ? 'left' : 'right'}`} key={activeSection}>{archiveSections[activeSection]}</strong>
         <button type="button" className="section-arrow" onClick={() => changeSection(1)} aria-label={`Show ${nextSection}`}><img src={rightArrowIcon} alt="" aria-hidden="true" /></button>
         <span className="section-neighbor section-neighbor-right">{nextSection}</span>
       </nav>
@@ -470,9 +563,10 @@ function DnDPage() {
         <>
           <section className="dnd-heading">
             <p className="eyebrow">DND HUB / STATISTICS</p>
-            <h1>Campaign Statistics  [WIP]</h1>
+            <h1>Campaign Statistics</h1>
             <p>View various statistics about players and the campaign.</p>
           </section>
+          <StatisticsDashboard />
         </>
       ) : (
         <>

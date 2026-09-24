@@ -4,7 +4,7 @@ import * as THREE from 'three';
 export function createTopoBigMaterial(): THREE.ShaderMaterial {
   return new THREE.ShaderMaterial({
     uniforms: {
-      // A single bright blue, no gradient — this is the "highlight" ring
+      // A single bright blue, this is the "highlight" ring
       uColor: { value: new THREE.Color(0xbfe4ff) }, // very bright pale blue
       uHeightRange: { value: new THREE.Vector2(-1.0, 5.0) },
       uFadeBottom:  { value: 0.65 }, // how much to darken at the bottom (1.0 = no fade)

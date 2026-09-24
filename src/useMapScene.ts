@@ -20,7 +20,8 @@ export interface RegionEntry {
 export interface ParsedScene {
   terrain: THREE.Mesh | null;   // "Plane"
   topo: THREE.Mesh | null;      // "Topo"
-  topoBig: THREE.Mesh | null;   // "Topo-big"
+  topoBig: THREE.Mesh | null;   // "Topo-Big"
+  topoBig2: THREE.Mesh | null;   // "Topo-Big2"
   buildings: BuildingEntry[];
   regions: RegionEntry[];
   root: THREE.Object3D;
@@ -62,6 +63,7 @@ export function useMapScene(modelPath: string): ParsedScene | null {
     let terrain: THREE.Mesh | null = null;
     let topo: THREE.Mesh | null = null;
     let topoBig: THREE.Mesh | null = null;
+    let topoBig2: THREE.Mesh | null = null;
     const buildings: BuildingEntry[] = [];
     const regions: RegionEntry[] = [];
 
@@ -82,6 +84,11 @@ export function useMapScene(modelPath: string): ParsedScene | null {
 
       if (name === 'Topo-Big') {
         topoBig = child;
+        return;
+      }
+
+      if (name === 'Topo-Big2') {
+        topoBig2 = child;
         return;
       }
 
@@ -128,7 +135,7 @@ export function useMapScene(modelPath: string): ParsedScene | null {
       }
     });
 
-    setParsed({ terrain, topo, topoBig, buildings, regions, root });
+    setParsed({ terrain, topo, topoBig, topoBig2, buildings, regions, root });
   }, [scene]);
 
   return parsed;

@@ -38,7 +38,7 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
 
   // Terrain material
   const terrainMaterial = useMemo(() => new THREE.MeshStandardMaterial({
-    color: 0x0a1a2f, // Flat dark blue
+    color: '#133057', // Flat dark blue
     roughness: 0.95,
     metalness: 0.0,
     transparent: true, // transparent! Topo lines are most imporant to see.
@@ -54,7 +54,7 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
 
   useEffect(() => {
     if (!parsed) return;
-    [parsed.topo, parsed.topoBig].forEach((obj) => {
+    [parsed.topo, parsed.topoBig, parsed.topoBig2].forEach((obj) => {
       if (!obj) return;
       obj.layers.enable(TOPO_LAYER);
       obj.traverse((o) => o.layers.enable(TOPO_LAYER));
@@ -96,6 +96,19 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
         worldBox.max.y,
       );
     }
+
+    if (parsed.topoBig2) {
+      parsed.topoBig2.material = topoBigMaterial;
+
+      // Reuse the terrain bbox for height range so the fade is consistent
+      const ref = parsed.terrain ?? parsed.topoBig2;
+      const worldBox = new THREE.Box3().setFromObject(ref);
+      (topoBigMaterial.uniforms.uHeightRange.value as THREE.Vector2).set(
+        worldBox.min.y,
+        worldBox.max.y,
+      );
+    }
+
   }, [parsed, terrainMaterial, topoMaterial, topoBigMaterial]);
 
   if (!parsed) return null;
@@ -117,8 +130,9 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
         <primitive object={parsed.topo} renderOrder={1} />
       )}
 
-      {/* Topgraphical data (Major ring) */}
+      {/* Topgraphical data (Major rings) */}
       {parsed.topoBig && <primitive object={parsed.topoBig} renderOrder={2} />}
+      {parsed.topoBig2 && <primitive object={parsed.topoBig2} renderOrder={2} />}
 
       {/* Buildings */}
       {parsed.buildings.map((b) => (
@@ -170,7 +184,7 @@ const LandscapeViewer: React.FC<LandscapeViewerProps> = ({
         camera={{ position: [20, 20, 20], fov: 50, near: 0.1, far: 1000 }}
         gl={{ antialias: true, powerPreference: 'high-performance' }} // Required so the topographical lines aren't horrendous to look at.
         dpr={[1, 2]}
-        style={{ background: '#0a1a2f' }} // Dark blue "sea" background color
+        style={{ background: '#071322' }} // Dark blue "sea" background color
       >
         <Suspense fallback={null}>
           <Scene modelPath={modelPath} />

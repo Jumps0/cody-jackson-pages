@@ -1,7 +1,7 @@
 // RegionLabel.tsx
 import React from 'react';
 import { Text } from '@react-three/drei';
-import type { RegionEntry } from './useMapScene';
+import type { RegionEntry } from './landscape/useMapScene';
 
 interface RegionLabelProps {
   entry: RegionEntry;

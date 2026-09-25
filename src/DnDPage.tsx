@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as echarts from 'echarts';
 import ChatData from './assets/chatdata.json';
 import StatisticsData from './assets/statistics.json';
-import LandscapeViewer from './LandscapeViewer';
+import LandscapeViewer from './landscape/LandscapeViewer';
 import leftArrowIcon from './assets/icon_arrow_left.png';
 import rightArrowIcon from './assets/icon_arrow_right.png';
 import './DnDPage.css';

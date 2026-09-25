@@ -10,6 +10,8 @@ import { createTopoMaterial } from './topoMaterial';
 import { Building } from './Building';
 import { RegionLabel } from './RegionLabel';
 import { BuildingTooltip } from './BuildingTooltip';
+import LandscapeGrid from './LandscapeGrid';
+import GlowingBorder from './GlowingBorder';
 import './LandscapeViewer.css';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
@@ -31,6 +33,34 @@ const ContextLossHandler: React.FC = () => {
   }, [gl]);
   return null;
 };
+
+function computeMapExtents(
+  terrain: THREE.Object3D,
+  cellSize: number,
+  marginCells: number = 0,
+): { bounds: THREE.Box3; cellSize: number; divisions: number } {
+  const box = new THREE.Box3().setFromObject(terrain);
+  const size = new THREE.Vector3();
+  const center = new THREE.Vector3();
+  box.getSize(size);
+  box.getCenter(center);
+
+  // Snap to nearest whole cell, then add margin in whole cells
+  const rawX = size.x / cellSize;
+  const rawZ = size.z / cellSize;
+  const divisionsX = Math.max(1, Math.ceil(rawX) + marginCells * 2);
+  const divisionsZ = Math.max(1, Math.ceil(rawZ) + marginCells * 2);
+
+  // Use a single square grid so lat/long lines are uniform.
+  const extent = Math.max(divisionsX, divisionsZ) * cellSize;
+  const divisions = Math.max(divisionsX, divisionsZ);
+  const squareBounds = new THREE.Box3(
+    new THREE.Vector3(center.x - extent / 2, box.min.y, center.z - extent / 2),
+    new THREE.Vector3(center.x + extent / 2, box.max.y, center.z + extent / 2),
+  );
+
+  return { bounds: squareBounds, cellSize, divisions };
+}
 
 const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
   const parsed = useMapScene(modelPath);
@@ -60,6 +90,14 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
       obj.traverse((o) => o.layers.enable(TOPO_LAYER));
     });
   }, [parsed]);
+
+  const mapExtents = useMemo(() => {
+    if (!parsed?.terrain) return null;
+    // cellSize = 1 → grid is 1 unit per cell
+    // marginCells = 2 → 2 extra cells of ocean on every side
+    return computeMapExtents(parsed.terrain, 1, 2);
+  }, [parsed]);
+
 
   useEffect(() => {
     if (!parsed) return;
@@ -149,6 +187,26 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
       {parsed.regions.map((r) => (
         <RegionLabel key={r.id} entry={r} />
       ))}
+
+      {mapExtents && (
+        <>
+          <LandscapeGrid
+            bounds={mapExtents.bounds}
+            cellSize={mapExtents.cellSize}
+            color="#9fbfe2"
+            opacity={0.18}
+          />
+          <GlowingBorder
+            bounds={mapExtents.bounds}
+            color="#9fbfe2"
+            glowHeight={1.5}
+            lineOpacity={0.9}
+            glowOpacity={0.25}
+            yOffset={-0.05}
+            taper={1}
+          />
+        </>
+      )}
 
       {/* Hover tooltip */}
       {hovered && <BuildingTooltip entry={hovered} />}

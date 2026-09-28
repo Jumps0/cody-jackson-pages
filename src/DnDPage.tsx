@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as echarts from 'echarts';
 import ChatData from './assets/chatdata.json';
 import StatisticsData from './assets/statistics.json';
+import SessionData from './assets/sessions.json';
 import LandscapeViewer from './landscape/LandscapeViewer';
 import leftArrowIcon from './assets/icon_arrow_left.png';
 import rightArrowIcon from './assets/icon_arrow_right.png';
@@ -108,6 +109,8 @@ const playerProfilePictures: Record<string, string> = {
   'Algernon': 'token_algernon',
   'Denellon': 'token_denellon',
   'Imogen / Agnes': 'token_agnes',
+  'Imogen': 'token_imogen',
+  'Agnes': 'token_agnes',
   'Lyndon': 'token_lyndon',
   'Thalai': 'token_thalai',
   'Traymon "Tray"': 'token_tray',
@@ -199,6 +202,91 @@ const pageSize = 100;
 const scrollToTopOnPagination = true;
 const miscAdventureNames: string[] = ["MergeMini", "NPCMini", "Citadel Puzl", "Challenge"];
 const archiveSections = ['Chat Archive', 'Statistics', 'Live Map'];
+
+type CampaignSession = {
+  date: string;
+  number: number | string;
+  name: string;
+  participants: string[];
+};
+
+const sessions = SessionData as CampaignSession[];
+const mergeDate = '2021-03-28';
+const partyGroupColors = ['#f0a35b', '#6ec6ca'];
+
+function getSessionGroupLane(session: CampaignSession): number | null {
+  if (session.date >= mergeDate || typeof session.number !== 'string') return null;
+  const lane = session.number.match(/([ab])$/i)?.[1]?.toLowerCase();
+  return lane === 'a' ? 0 : lane === 'b' ? 1 : null;
+}
+
+function getSessionGroups(session: CampaignSession): { label: string; participants: string[] }[] {
+  const lane = getSessionGroupLane(session);
+  if (lane === null) return [{ label: 'Party', participants: session.participants }];
+  return [{ label: `Group ${lane === 0 ? 'A' : 'B'}`, participants: session.participants }];
+}
+
+function SessionTimeline({ selectedIndex, onSelect }: { selectedIndex: number; onSelect: (index: number) => void }) {
+  const rowHeight = 58;
+  const chartLeft = 124;
+  const chartRight = 980;
+  const groupCenters = [390, 714];
+  const mergedCenter = (chartLeft + chartRight) / 2;
+  const sessionY = (index: number) => 30 + index * rowHeight;
+  const mergeIndex = sessions.findIndex((session) => session.date === mergeDate);
+  const getLaneX = (sessionIndex: number, lane: number) => getSessionGroupLane(sessions[sessionIndex]) === null ? mergedCenter : groupCenters[lane];
+  const buildPath = (indices: number[], lane: number) => indices.reduce((path, sessionIndex, pointIndex) => {
+    const x = getLaneX(sessionIndex, lane);
+    const y = sessionY(sessionIndex);
+    if (pointIndex === 0) return `M ${x} ${y}`;
+    const previousIndex = indices[pointIndex - 1];
+    const previousX = getLaneX(previousIndex, lane);
+    const previousY = sessionY(previousIndex);
+    const bend = (y - previousY) * 0.45;
+    return `${path} C ${previousX} ${previousY + bend}, ${x} ${y - bend}, ${x} ${y}`;
+  }, '');
+  const groupPaths = mergeIndex < 0 ? [] : [0, 1].map((lane) => {
+    const laneSessions = sessions
+      .map((session, index) => ({ session, index }))
+      .filter(({ session, index }) => index > 0 && index < mergeIndex && getSessionGroupLane(session) === lane)
+      .map(({ index }) => index);
+    return {
+      color: partyGroupColors[lane],
+      d: buildPath([0, ...laneSessions, mergeIndex], lane),
+      key: `group-${lane}`,
+    };
+  });
+  const mergedPath = mergeIndex >= 0 && mergeIndex < sessions.length - 1
+    ? buildPath(Array.from({ length: sessions.length - mergeIndex }, (_, index) => mergeIndex + index), 0)
+    : '';
+
+  return <section className="journey-log" aria-label="Historic party timeline">
+    <div className="journey-log-heading"><div><p className="eyebrow">SESSION HISTORY</p><h2>Historic travel timeline</h2></div><p>Click any session to place its marker on the map.</p></div>
+    <div className="timeline-scroll">
+      <div className="timeline" style={{ height: `${sessions.length * rowHeight + 44}px` }}>
+        <svg className="timeline-lines" viewBox={`0 0 1000 ${sessions.length * rowHeight + 44}`} preserveAspectRatio="none" aria-hidden="true">
+          {groupPaths.map((path) => <path key={path.key} d={path.d} stroke={path.color} />)}
+          {mergedPath && <path className="timeline-merged-path" d={mergedPath} />}
+        </svg>
+        {sessions.map((session, index) => <div className={`timeline-row${selectedIndex === index ? ' is-selected' : ''}`} key={`${session.date}-${session.name}`} style={{ top: `${sessionY(index) - 20}px` }}>
+          <button type="button" className="timeline-session" onClick={() => onSelect(index)} aria-label={`Session ${session.number}, ${session.name}, ${session.participants.join(', ')}`}><strong>#{session.number}</strong><span>{session.name}</span><time>{session.date}</time></button>
+          <div className="timeline-dots">{session.participants.map((participant, participantIndex) => {
+            const lane = getSessionGroupLane(session);
+            const groupPosition = lane === null ? mergedCenter : groupCenters[lane];
+            const memberOffset = (participantIndex - (session.participants.length - 1) / 2) * 40;
+            const profilePicture = getProfilePicture(participant);
+            return <button type="button" className="timeline-dot" style={{ left: `${(groupPosition + memberOffset) / 10}%` }} key={`${participant}-${participantIndex}`} onClick={() => onSelect(index)} aria-label={`${participant} present in session ${session.number}`}>
+              {profilePicture ? <img src={profilePicture} alt="" /> : <span className="timeline-dot-initials">{participant.slice(0, 2).toUpperCase()}</span>}
+              <span className="timeline-tooltip">{session.participants.join(', ')}</span>
+            </button>;
+          })}</div>
+        </div>)}
+        {sessions.some((session) => session.date === mergeDate) && <div className="party-merge-divider" style={{ top: `${sessionY(sessions.findIndex((session) => session.date === mergeDate)) - 29}px` }}><span>PARTY MERGE</span></div>}
+      </div>
+    </div>
+    <div className="timeline-group-bar" aria-label="Active party groups">{getSessionGroups(sessions[selectedIndex]).map((group, index) => <div key={group.label} style={{ backgroundColor: partyGroupColors[getSessionGroupLane(sessions[selectedIndex]) ?? index] }}>{group.label}: {group.participants.join(', ')}</div>)}</div>
+  </section>;
+}
 
 function getAdventureCategory(adventure: string | undefined): string | undefined {
   const normalizedAdventure = adventure?.trim();
@@ -459,6 +547,7 @@ function DnDPage() {
   const [minRoll, setMinRoll] = useState('');
   const [maxRoll, setMaxRoll] = useState('');
   const [page, setPage] = useState(0);
+  const [selectedSessionIndex, setSelectedSessionIndex] = useState(sessions.length - 1);
 
   const users = useMemo(() => [...new Set(messages.map((message) => message.sender))].sort(), []);
   const adventures = useMemo(() => {
@@ -516,6 +605,7 @@ function DnDPage() {
   };
   const previousSection = archiveSections[(activeSection - 1 + archiveSections.length) % archiveSections.length];
   const nextSection = archiveSections[(activeSection + 1) % archiveSections.length];
+  const selectedSession = sessions[selectedSessionIndex];
 
   return (
     <main className="dnd-page">
@@ -575,17 +665,17 @@ function DnDPage() {
             <h1>Live Campaign Map [WIP]</h1>
             <p>View a live and historic travel log of the players' many adventures.</p>
           </section>
-          {
           <div className="landscape-page">
             <div className="viewer-wrapper">
               <LandscapeViewer 
                 modelPath="models/landscape.glb"
                 minZoom={5}
                 maxZoom={25}
+                selectedSession={selectedSession}
               />
             </div>
           </div>
-          }
+          <SessionTimeline selectedIndex={selectedSessionIndex} onSelect={setSelectedSessionIndex} />
         </>
       )}
     </main>

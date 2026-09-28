@@ -17,6 +17,12 @@ export interface RegionEntry {
   scale: number; // multiplier of default font size (1.0 = default)
 }
 
+export interface SessionMarkerEntry {
+  id: string;
+  date: string;
+  worldPosition: THREE.Vector3;
+}
+
 export interface ParsedScene {
   terrain: THREE.Mesh | null;   // "Plane"
   topo: THREE.Mesh | null;      // "Topo"
@@ -24,6 +30,7 @@ export interface ParsedScene {
   topoBig2: THREE.Mesh | null;   // "Topo-Big2"
   buildings: BuildingEntry[];
   regions: RegionEntry[];
+  sessionMarkers: SessionMarkerEntry[];
   root: THREE.Object3D;
 }
 
@@ -66,11 +73,23 @@ export function useMapScene(modelPath: string): ParsedScene | null {
     let topoBig2: THREE.Mesh | null = null;
     const buildings: BuildingEntry[] = [];
     const regions: RegionEntry[] = [];
+    const sessionMarkers: SessionMarkerEntry[] = [];
 
     root.traverse((child) => {
-      if (!(child instanceof THREE.Mesh)) return;
-
       const name = child.name || '';
+
+      if (name.startsWith('Session_')) {
+        const worldPosition = new THREE.Vector3();
+        child.getWorldPosition(worldPosition);
+        sessionMarkers.push({
+          id: child.uuid,
+          date: name.slice('Session_'.length),
+          worldPosition,
+        });
+        return;
+      }
+
+      if (!(child instanceof THREE.Mesh)) return;
 
       if (name === 'Plane') {
         terrain = child;
@@ -135,7 +154,7 @@ export function useMapScene(modelPath: string): ParsedScene | null {
       }
     });
 
-    setParsed({ terrain, topo, topoBig, topoBig2, buildings, regions, root });
+    setParsed({ terrain, topo, topoBig, topoBig2, buildings, regions, sessionMarkers, root });
   }, [scene]);
 
   return parsed;

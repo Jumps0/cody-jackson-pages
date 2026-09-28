@@ -1,10 +1,10 @@
 // LandscapeViewer.tsx
 import React, { Suspense, useEffect, useMemo, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { useMapScene } from './useMapScene';
-import type { BuildingEntry } from './useMapScene';
+import type { BuildingEntry, SessionMarkerEntry } from './useMapScene';
 import { createTopoBigMaterial } from './topoBigMaterial';
 import { createTopoMaterial } from './topoMaterial';
 import { Building } from './Building';
@@ -21,6 +21,7 @@ interface LandscapeViewerProps {
   modelPath: string;
   minZoom?: number;
   maxZoom?: number;
+  selectedSession?: { date: string; number: number | string; name: string };
 }
 
 const ContextLossHandler: React.FC = () => {
@@ -62,7 +63,15 @@ function computeMapExtents(
   return { bounds: squareBounds, cellSize, divisions };
 }
 
-const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
+const SessionMarker: React.FC<{ entry: SessionMarkerEntry }> = ({ entry }) => (
+  <group>
+    <Html position={[entry.worldPosition.x, entry.worldPosition.y + 0.5, entry.worldPosition.z]} center distanceFactor={15} style={{ pointerEvents: 'none' }}>
+      <div className="session-map-marker" aria-hidden="true" />
+    </Html>
+  </group>
+);
+
+const Scene: React.FC<{ modelPath: string; selectedSession?: LandscapeViewerProps['selectedSession'] }> = ({ modelPath, selectedSession }) => {
   const parsed = useMapScene(modelPath);
   const [hovered, setHovered] = useState<BuildingEntry | null>(null);
 
@@ -151,6 +160,8 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
 
   if (!parsed) return null;
 
+  const selectedMarker = selectedSession && parsed.sessionMarkers.find((marker) => marker.date === selectedSession.date);
+
   return (
     <>
       <ContextLossHandler />
@@ -187,6 +198,8 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
       {parsed.regions.map((r) => (
         <RegionLabel key={r.id} entry={r} />
       ))}
+
+      {selectedMarker && <SessionMarker entry={selectedMarker} />}
 
       {mapExtents && (
         <>
@@ -235,6 +248,7 @@ const Scene: React.FC<{ modelPath: string }> = ({ modelPath }) => {
 
 const LandscapeViewer: React.FC<LandscapeViewerProps> = ({
   modelPath,
+  selectedSession,
 }) => {
   return (
     <div className="landscape-viewer-container">
@@ -245,7 +259,7 @@ const LandscapeViewer: React.FC<LandscapeViewerProps> = ({
         style={{ background: '#071322' }} // Dark blue "sea" background color
       >
         <Suspense fallback={null}>
-          <Scene modelPath={modelPath} />
+          <Scene modelPath={modelPath} selectedSession={selectedSession} />
           <EffectComposer multisampling={8}>
             <Bloom // Bloom! Generally makes everything look better
               intensity={1.2}
@@ -257,6 +271,7 @@ const LandscapeViewer: React.FC<LandscapeViewerProps> = ({
           </EffectComposer>
         </Suspense>
       </Canvas>
+      {selectedSession && <div className="session-map-overlay">Session {selectedSession.number} - Adventure: {selectedSession.name}</div>}
     </div>
   );
 };

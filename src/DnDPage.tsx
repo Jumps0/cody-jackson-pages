@@ -662,7 +662,7 @@ function DnDPage() {
         <>
           <section className="dnd-heading">
             <p className="eyebrow">DND HUB / LIVE MAP</p>
-            <h1>Live Campaign Map [WIP]</h1>
+            <h1>Live Campaign Map</h1>
             <p>View a live and historic travel log of the players' many adventures.</p>
           </section>
           <div className="landscape-page">

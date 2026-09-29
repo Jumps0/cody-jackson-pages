@@ -5,6 +5,7 @@ import AboutPage from './AboutPage'
 import ProjectsPage from './ProjectsPage'
 import DnDPage from './DnDPage'
 import LanguageToggle from './LanguageToggle'
+import ShaderBackground from './ShaderBackground'
 import { useLanguage } from './LanguageContext';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+      <ShaderBackground />
       <header className="top-bar">
         <div className="top-left-clock">
           <Clock />

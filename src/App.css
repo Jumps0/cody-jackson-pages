@@ -117,7 +117,7 @@
 
 .section-card {
   border-radius: 28px;
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(15, 23, 42, 0.88);
   border: 1px solid rgba(148, 163, 184, 0.18);
   box-shadow: 0 24px 80px rgba(15, 23, 42, 0.2);
   padding: 28px 24px;
@@ -179,7 +179,7 @@
 
 .nested-card {
   border-radius: 24px;
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.5);
   border: 1px solid rgba(148, 163, 184, 0.12);
   padding: 22px 20px;
 }

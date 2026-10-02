@@ -14,7 +14,7 @@ export const RegionLabel: React.FC<RegionLabelProps> = ({ entry }) => {
     <Text
       position={[entry.position.x, entry.position.y+0.1, entry.position.z]}
       rotation={[-Math.PI / 2, 0, 0]} // Rotate -90° on X to lie flat on the ground, facing up (+Y)
-      font="ACES07_Regular.otf"
+      font={entry.italic ? 'ACES07_Italic.otf' : 'ACES07_Regular.otf'}
       fontSize={DEFAULT_FONT_SIZE * entry.scale}
       color="#cfe6ff"
       anchorX="center"

@@ -15,6 +15,7 @@ export interface RegionEntry {
   displayName: string;
   position: THREE.Vector3;
   scale: number; // multiplier of default font size (1.0 = default)
+  italic: boolean;
 }
 
 export interface SessionMarkerEntry {
@@ -138,7 +139,9 @@ export function useMapScene(modelPath: string): ParsedScene | null {
 
       if (name.startsWith('region_')) {
         const raw = name.slice('region_'.length);
-        const { scale, name: baseName } = parseRegionName(raw);
+        const italic = raw.includes('*');
+        const normalizedRaw = raw.replace(/\*/g, '');
+        const { scale, name: baseName } = parseRegionName(normalizedRaw);
         const displayName = camelToDisplayName(baseName);
 
         const worldPos = new THREE.Vector3();
@@ -149,6 +152,7 @@ export function useMapScene(modelPath: string): ParsedScene | null {
           displayName,
           position: worldPos,
           scale,
+          italic,
         });
         return;
       }

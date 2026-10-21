@@ -106,8 +106,8 @@ function ShaderBackground() {
 
     const render = (now: number) => {
       const pixelRatio = Math.min(window.devicePixelRatio || 1, 2)
-      const width = Math.floor(canvas.clientWidth * pixelRatio)
-      const height = Math.floor(canvas.clientHeight * pixelRatio)
+      const width = 1440 //Math.floor(window.innerWidth * pixelRatio)
+      const height = Math.floor(window.innerHeight * pixelRatio)
 
       if (canvas.width !== width || canvas.height !== height) {
         canvas.width = width

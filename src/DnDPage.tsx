@@ -102,7 +102,7 @@ const profilePictureFiles = import.meta.glob('./assets/dnd-pfps/*.png', { eager:
 
 // Assign a token filename to each sender as the player identities are confirmed.
 const playerProfilePictures: Record<string, string> = {
-  'Hypae\'Tia "Hype"': 'token_hypaetia',
+  "Hypae'tia \"Hype\"": 'token_hypaetia',
   'Adrian of Ceylor': 'token_adrian',
   'AJ (DM)': 'token_dm',
   'Akta the Optimal': 'token_akta',

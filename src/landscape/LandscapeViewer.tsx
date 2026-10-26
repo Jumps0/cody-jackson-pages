@@ -255,12 +255,12 @@ const LandscapeViewer: React.FC<LandscapeViewerProps> = ({
       <Canvas
         camera={{ position: [20, 20, 20], fov: 50, near: 0.1, far: 1000 }}
         gl={{ antialias: true, powerPreference: 'high-performance' }} // Required so the topographical lines aren't horrendous to look at.
-        dpr={[1, 2]}
+        dpr={1}
         style={{ background: '#071322' }} // Dark blue "sea" background color
       >
         <Suspense fallback={null}>
           <Scene modelPath={modelPath} selectedSession={selectedSession} />
-          <EffectComposer multisampling={8}>
+          <EffectComposer multisampling={2}>
             <Bloom // Bloom! Generally makes everything look better
               intensity={1.2}
               luminanceThreshold={0.4}

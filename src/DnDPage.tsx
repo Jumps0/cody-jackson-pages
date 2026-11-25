@@ -679,7 +679,7 @@ function DnDPage() {
                   />
                 </Suspense>
               ) : (
-                <button type="button" className="map-load-button" onClick={() => setMapRequested(true)}>Load Map</button>
+                <button type="button" className="map-load-button" onClick={() => setMapRequested(true)}>Click to Load Map</button>
               )}
             </div>
           </div>

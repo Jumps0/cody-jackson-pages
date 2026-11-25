@@ -111,13 +111,7 @@ const Scene: React.FC<{ modelPath: string; selectedSession?: LandscapeViewerProp
   useEffect(() => {
     if (!parsed) return;
 
-    if (parsed.terrain) {
-      parsed.terrain.material = terrainMaterial;
-    }
-
     if (parsed.topo) {
-      parsed.topo.material = topoMaterial;
-
       // Auto-tune gradient range from the terrain's bounding box so the whole topo mesh uses the full color range.
       const ref = parsed.terrain ?? parsed.topo;
       ref.geometry.computeBoundingBox();
@@ -133,8 +127,6 @@ const Scene: React.FC<{ modelPath: string; selectedSession?: LandscapeViewerProp
     }
 
     if (parsed.topoBig) {
-      parsed.topoBig.material = topoBigMaterial;
-
       // Reuse the terrain bbox for height range so the fade is consistent
       const ref = parsed.terrain ?? parsed.topoBig;
       const worldBox = new THREE.Box3().setFromObject(ref);
@@ -145,8 +137,6 @@ const Scene: React.FC<{ modelPath: string; selectedSession?: LandscapeViewerProp
     }
 
     if (parsed.topoBig2) {
-      parsed.topoBig2.material = topoBigMaterial;
-
       // Reuse the terrain bbox for height range so the fade is consistent
       const ref = parsed.terrain ?? parsed.topoBig2;
       const worldBox = new THREE.Box3().setFromObject(ref);
@@ -172,16 +162,16 @@ const Scene: React.FC<{ modelPath: string; selectedSession?: LandscapeViewerProp
 
       {/* Terrain */}
       {parsed.terrain && (
-        <primitive object={parsed.terrain} renderOrder={0} />
+        <primitive object={parsed.terrain} material={terrainMaterial} renderOrder={0} />
       )}
       {/* Topgraphical data (minor rings) */}
       {parsed.topo && (
-        <primitive object={parsed.topo} renderOrder={1} />
+        <primitive object={parsed.topo} material={topoMaterial} renderOrder={1} />
       )}
 
       {/* Topgraphical data (Major rings) */}
-      {parsed.topoBig && <primitive object={parsed.topoBig} renderOrder={2} />}
-      {parsed.topoBig2 && <primitive object={parsed.topoBig2} renderOrder={2} />}
+      {parsed.topoBig && <primitive object={parsed.topoBig} material={topoBigMaterial} renderOrder={2} />}
+      {parsed.topoBig2 && <primitive object={parsed.topoBig2} material={topoBigMaterial} renderOrder={2} />}
 
       {/* Buildings */}
       {parsed.buildings.map((b) => (

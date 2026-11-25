@@ -1,5 +1,5 @@
 // useMapScene.ts
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import * as THREE from 'three';
 import { useGLTF } from '@react-three/drei';
 
@@ -61,9 +61,8 @@ function camelToDisplayName(raw: string): string {
 
 export function useMapScene(modelPath: string): ParsedScene | null {
   const { scene } = useGLTF(modelPath);
-  const [parsed, setParsed] = useState<ParsedScene | null>(null);
 
-  useEffect(() => {
+  const parsed = useMemo(() => {
     // Clone so hot-reload / StrictMode remounts don't share mutated materials
     const root = scene.clone(true);
     root.updateMatrixWorld(true);
@@ -158,7 +157,7 @@ export function useMapScene(modelPath: string): ParsedScene | null {
       }
     });
 
-    setParsed({ terrain, topo, topoBig, topoBig2, buildings, regions, sessionMarkers, root });
+    return { terrain, topo, topoBig, topoBig2, buildings, regions, sessionMarkers, root };
   }, [scene]);
 
   return parsed;

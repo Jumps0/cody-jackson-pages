@@ -1,7 +1,7 @@
 // Building.tsx
 import React, { useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, type ThreeEvent } from '@react-three/fiber';
 import type { BuildingEntry } from './useMapScene';
 
 interface BuildingProps {
@@ -32,9 +32,8 @@ export const Building: React.FC<BuildingProps> = ({
       roughness: 0.7,
       metalness: 0.05,
     });
-    mesh.material = m;
     return m;
-  }, [mesh]);
+  }, []);
 
   // Compute outline geometry from the mesh's edges
   const outlineGeometry = useMemo(() => {
@@ -59,12 +58,13 @@ export const Building: React.FC<BuildingProps> = ({
     <group>
       <primitive
         object={mesh}
-        onPointerOver={(e: any) => {
+        material={material}
+        onPointerOver={(e: ThreeEvent<PointerEvent>) => {
           e.stopPropagation();
           onHover(entry);
           document.body.style.cursor = 'pointer';
         }}
-        onPointerOut={(e: any) => {
+        onPointerOut={(e: ThreeEvent<PointerEvent>) => {
           e.stopPropagation();
           onUnhover(entry);
           document.body.style.cursor = 'default';

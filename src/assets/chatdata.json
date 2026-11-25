@@ -302712,6 +302712,476 @@
       "roll_data": null,
       "raw_html": "<div class=\"message general\" data-messageid=\"-P4oenk0T_FPzDcoZu-9\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"Chat%20Log%20for%20The%20Broken%20Islands_files/thumb_003_CVZg.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">8:05PM</span><span class=\"by\">Tramon \"Tray\" (Chris):</span>nope lol</div>",
       "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 1:58AM",
+      "sender": "Hypae'tia \"Hype\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d6+3",
+        "result": "9",
+        "individual_rolls": [
+          "6"
+        ],
+        "dice_groups": [
+          [
+            "6"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--MFMXtEov2Ab_1TEv0jy discord-production\" data-messageid=\"-P7-yYzE1Dt3Ca1GQqSP\" data-playerid=\"-MFMXtEov2Ab_1TEv0jy\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/43112bf655f9920e89f4535cf8c5c410_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 1:58AM</span><span class=\"by\">Sarah M.:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d6+3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d6 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div></div>)</div>+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">9</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 1:58AM",
+      "sender": "Hypae'tia \"Hype\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d8+3",
+        "result": "7",
+        "individual_rolls": [
+          "4"
+        ],
+        "dice_groups": [
+          [
+            "4"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--MFMXtEov2Ab_1TEv0jy discord-production\" data-messageid=\"-P700NgrusRI85UxBpn-\" data-playerid=\"-MFMXtEov2Ab_1TEv0jy\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d8+3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d8\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div>+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">7</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 2:16AM",
+      "sender": "Denellon",
+      "type": "general",
+      "content": "(Charisma of 12, so actually cleric is mandatory.)",
+      "roll_data": null,
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P701b2tS-yj2R-3mbCD\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/32f092b7f6431733b745feeb99b26db5_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 2:16AM</span><span class=\"by\">Denellon (Ryan M.):</span>(Charisma of 12, so actually cleric is mandatory.)</div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 2:20AM",
+      "sender": "Hypae'tia \"Hype\"",
+      "type": "general",
+      "content": "yep rip",
+      "roll_data": null,
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P702VU5Csbk843mF2Sw\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/43112bf655f9920e89f4535cf8c5c410_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 2:20AM</span><span class=\"by\">Sarah M.:</span>yep rip</div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 2:20AM",
+      "sender": "Hypae'tia \"Hype\"",
+      "type": "general",
+      "content": "Although considering Hype just received the ability to Commune with gods, cleric level up is also a good flavor :)",
+      "roll_data": null,
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P7038PERY1aRNoTCmj3\">Although considering Hype just received the ability to Commune with gods, cleric level up is also a good flavor :)</div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 6:35PM",
+      "sender": "Adrian of Ceylor",
+      "type": "general",
+      "content": "----- session 82 start (11/22/26) ------",
+      "roll_data": null,
+      "raw_html": "<div class=\"message general you\" data-messageid=\"-P73XiIjYqhO0x4I9V2v\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 6:35PM</span><span class=\"by\">Cody (Adrian):</span>----- session 82 start (11/22/26) ------</div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 6:47PM",
+      "sender": "Hypae'tia \"Hype\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d20+7+1d4",
+        "result": "10",
+        "individual_rolls": [
+          "1",
+          "2"
+        ],
+        "dice_groups": [
+          [
+            "1"
+          ],
+          [
+            "2"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--MFMXtEov2Ab_1TEv0jy discord-production\" data-messageid=\"-P73_NbajLKSq0mfYaLd\" data-playerid=\"-MFMXtEov2Ab_1TEv0jy\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/43112bf655f9920e89f4535cf8c5c410_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 6:47PM</span><span class=\"by\">Sarah M.:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+7+1d4</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20 critfail\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">1</div><div class=\"backing\"></div></div></div>)</div>+7+<div class=\"dicegrouping\" data-groupindex=\"2\">(<div class=\"diceroll d4\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">10</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 6:57PM",
+      "sender": "Lyndon",
+      "type": "specified_roll",
+      "content": null,
+      "roll_data": {
+        "check_name": "PERCEPTION(8)",
+        "results": [
+          {
+            "total": "14",
+            "individual_roll": null,
+            "modifier": "3"
+          },
+          {
+            "total": "15",
+            "individual_roll": null,
+            "modifier": "3"
+          }
+        ],
+        "formula": "Rolling 1d20+3[Proficiency]+5[wisdom] = (<span class=\"basicdiceroll\">6</span>)+3+5"
+      },
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P73boJBnlBM4Tc-xbyn\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_004_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 6:57PM</span><span class=\"by\">Liam B.:</span><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+3[Proficiency]+5[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;6&lt;/span&gt;)+3+5'>14</span></span>\n</div>\n<div class=\"sheet-advspacer\"></div>\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+3[Proficiency]+5[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;7&lt;/span&gt;)+3+5'>15</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>PERCEPTION <span>(8)</span></span>\n</div>\n</div>\n</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:07PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "specified_roll",
+      "content": null,
+      "roll_data": {
+        "check_name": "PERCEPTION(7)",
+        "results": [
+          {
+            "total": "19",
+            "individual_roll": null,
+            "modifier": "3"
+          },
+          {
+            "total": "22",
+            "individual_roll": null,
+            "modifier": "3"
+          }
+        ],
+        "formula": "Rolling 1d20+3[Proficiency]+4[wisdom] = (<span class=\"basicdiceroll\">12</span>)+3+4"
+      },
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P73dwBIw3q0bBkKwivV\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:07PM</span><span class=\"by\">Tramon \"Tray\" (Chris):</span><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+3[Proficiency]+4[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;12&lt;/span&gt;)+3+4'>19</span></span>\n</div>\n<div class=\"sheet-advspacer\"></div>\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+3[Proficiency]+4[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;15&lt;/span&gt;)+3+4'>22</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>PERCEPTION <span>(7)</span></span>\n</div>\n</div>\n</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:10PM",
+      "sender": "Adrian of Ceylor",
+      "type": "general",
+      "content": "tray HP is 30 + 10 temp",
+      "roll_data": null,
+      "raw_html": "<div class=\"message general you\" data-messageid=\"-P73e_V0mxks62kz7ybI\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:10PM</span><span class=\"by\">Cody (Adrian):</span>tray HP is 30 + 10 temp</div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:19PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d20 + 4 + 3",
+        "result": "18",
+        "individual_rolls": [
+          "11"
+        ],
+        "dice_groups": [
+          [
+            "11"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--M8NjfXgvpIvvZsyoKlU discord-production\" data-messageid=\"-P73gh6LknvGkGaMRSNt\" data-playerid=\"-M8NjfXgvpIvvZsyoKlU\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:19PM</span><span class=\"by\">Tramon \"Tray\" (Chris):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20 + 4 + 3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">11</div><div class=\"backing\"></div></div></div>)</div>+4+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">18</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:20PM",
+      "sender": "Adrian of Ceylor",
+      "type": "general",
+      "content": "we did see a city in the distance as we were moving through the unburned forest",
+      "roll_data": null,
+      "raw_html": "<div class=\"message general you\" data-messageid=\"-P73h2MrQVLZrPhz10u6\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:20PM</span><span class=\"by\">Cody (Adrian):</span>we did see a city in the distance as we were moving through the unburned forest</div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:24PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d4 + 4",
+        "result": "6",
+        "individual_rolls": [
+          "2"
+        ],
+        "dice_groups": [
+          [
+            "2"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--M8NjfXgvpIvvZsyoKlU discord-production\" data-messageid=\"-P73hxKBjh8glxhtiyie\" data-playerid=\"-M8NjfXgvpIvvZsyoKlU\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:24PM</span><span class=\"by\">Tramon \"Tray\" (Chris):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d4 + 4</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d4\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">2</div><div class=\"backing\"></div></div></div>)</div>+4<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">6</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:26PM",
+      "sender": "Adrian of Ceylor",
+      "type": "general",
+      "content": "long rest!",
+      "roll_data": null,
+      "raw_html": "<div class=\"message general you\" data-messageid=\"-P73iPmFtub-GrIWwh2d\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_002_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:26PM</span><span class=\"by\">Cody (Adrian):</span>long rest!</div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:37PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 3d8 + 9",
+        "result": "25",
+        "individual_rolls": [
+          "6",
+          "4",
+          "6"
+        ],
+        "dice_groups": [
+          [
+            "6",
+            "4",
+            "6"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--M8NjfXgvpIvvZsyoKlU discord-production\" data-messageid=\"-P73kr4rfJigVD5gDRY5\" data-playerid=\"-M8NjfXgvpIvvZsyoKlU\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:37PM</span><span class=\"by\">Tramon \"Tray\" (Chris):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 3d8 + 9</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d8\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d8\" data-origindex=\"2\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div></div>)</div>+9<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">25</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:37PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d8 + 3",
+        "result": "11",
+        "individual_rolls": [
+          "8"
+        ],
+        "dice_groups": [
+          [
+            "8"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--M8NjfXgvpIvvZsyoKlU discord-production\" data-messageid=\"-P73kww5xqudNX_4Y84e\" data-playerid=\"-M8NjfXgvpIvvZsyoKlU\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d8 + 3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d8 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">8</div><div class=\"backing\"></div></div></div>)</div>+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">11</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:37PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "specified_roll",
+      "content": null,
+      "roll_data": {
+        "check_name": "PERCEPTION(7)",
+        "results": [
+          {
+            "total": "16",
+            "individual_roll": null,
+            "modifier": "3"
+          },
+          {
+            "total": "18",
+            "individual_roll": null,
+            "modifier": "3"
+          }
+        ],
+        "formula": "Rolling 1d20+3[Proficiency]+4[wisdom] = (<span class=\"basicdiceroll\">9</span>)+3+4"
+      },
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P73mEaXa2WjXz-FY_NB\"><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+3[Proficiency]+4[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;9&lt;/span&gt;)+3+4'>16</span></span>\n</div>\n<div class=\"sheet-advspacer\"></div>\n<div class=\"sheet-adv\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d20+3[Proficiency]+4[wisdom] = (&lt;span class=\"basicdiceroll\"&gt;11&lt;/span&gt;)+3+4'>18</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>PERCEPTION <span>(7)</span></span>\n</div>\n</div>\n</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:37PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d4",
+        "result": "4",
+        "individual_rolls": [
+          "4"
+        ],
+        "dice_groups": [
+          [
+            "4"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--M8NjfXgvpIvvZsyoKlU discord-production\" data-messageid=\"-P73mF0v2G8wjTZxZ-Do\" data-playerid=\"-M8NjfXgvpIvvZsyoKlU\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d4</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d4 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">4</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:54PM",
+      "sender": "Hypae'tia \"Hype\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d8",
+        "result": "5",
+        "individual_rolls": [
+          "5"
+        ],
+        "dice_groups": [
+          [
+            "5"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--MFMXtEov2Ab_1TEv0jy discord-production\" data-messageid=\"-P73odSXUJ_t_dD2vlnO\" data-playerid=\"-MFMXtEov2Ab_1TEv0jy\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/43112bf655f9920e89f4535cf8c5c410_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:54PM</span><span class=\"by\">Sarah M.:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d8</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d8\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">5</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">5</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:55PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d8 + 3",
+        "result": "9",
+        "individual_rolls": [
+          "6"
+        ],
+        "dice_groups": [
+          [
+            "6"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--M8NjfXgvpIvvZsyoKlU discord-production\" data-messageid=\"-P73oyqzRgsoBQhRCxfK\" data-playerid=\"-M8NjfXgvpIvvZsyoKlU\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:55PM</span><span class=\"by\">Tramon \"Tray\" (Chris):</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d8 + 3</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d8\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div></div>)</div>+3<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">9</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:55PM",
+      "sender": "Traymon \"Tray\"",
+      "type": "general",
+      "content": "Now at 73 Max HP",
+      "roll_data": null,
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P73p0dmt9gBUiLyI3xR\">Now at 73 Max HP</div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:56PM",
+      "sender": "Thalai",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d10+4",
+        "result": "10",
+        "individual_rolls": [
+          "6"
+        ],
+        "dice_groups": [
+          [
+            "6"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--M8NgsHxb0vuzauzNsof discord-production\" data-messageid=\"-P73pGbIs7ibrSgToBT8\" data-playerid=\"-M8NgsHxb0vuzauzNsof\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/b28bbb9fd159cd9d054cb0c8234719c0_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:56PM</span><span class=\"by\">(Thalai) Jarred:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d10+4</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d10\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">6</div><div class=\"backing\"></div></div></div>)</div>+4<div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">10</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:57PM",
+      "sender": "Lyndon",
+      "type": "specified_roll",
+      "content": null,
+      "roll_data": {
+        "check_name": "HIT DICE(D8+3)",
+        "results": [
+          {
+            "total": "4",
+            "individual_roll": null,
+            "modifier": "3"
+          },
+          {
+            "total": "3",
+            "individual_roll": null,
+            "modifier": null
+          }
+        ],
+        "formula": "Rolling 1d8+3[CON] = (<span class=\"basicdiceroll critfail \">1</span>)+3"
+      },
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P73pSVIFPARCjSMa9Mk\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/thumb_004_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 7:57PM</span><span class=\"by\">Liam B.:</span><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-solo\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right fullfail\" title='Rolling 1d8+3[CON] = (&lt;span class=\"basicdiceroll critfail \"&gt;1&lt;/span&gt;)+3'>4</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>HIT DICE <span>(D8+<span class=\"inlinerollresult showtip tipsy-n-right\" title=\"Rolling 3[CON] = 3\">3</span>)</span></span>\n</div>\n</div>\n</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 7:57PM",
+      "sender": "Lyndon",
+      "type": "specified_roll",
+      "content": null,
+      "roll_data": {
+        "check_name": "HIT DICE(D8+3)",
+        "results": [
+          {
+            "total": "8",
+            "individual_roll": null,
+            "modifier": "3"
+          },
+          {
+            "total": "3",
+            "individual_roll": null,
+            "modifier": null
+          }
+        ],
+        "formula": "Rolling 1d8+3[CON] = (<span class=\"basicdiceroll\">5</span>)+3"
+      },
+      "raw_html": "<div class=\"message general\" data-messageid=\"-P73pX1ZHdKP-VWkq6Nn\"><div class=\"sheet-rolltemplate-simple sheet-rolltemplate-darkmode\">\n<div class=\"sheet-container\">\n<div class=\"sheet-result\">\n<div class=\"sheet-solo\">\n<span><span class=\"inlinerollresult showtip tipsy-n-right\" title='Rolling 1d8+3[CON] = (&lt;span class=\"basicdiceroll\"&gt;5&lt;/span&gt;)+3'>8</span></span>\n</div>\n</div>\n<div class=\"sheet-label\">\n<span>HIT DICE <span>(D8+<span class=\"inlinerollresult showtip tipsy-n-right\" title=\"Rolling 3[CON] = 3\">3</span>)</span></span>\n</div>\n</div>\n</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 8:32PM",
+      "sender": "Hypae'tia \"Hype\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 2d20+7 +1d4",
+        "result": "19",
+        "individual_rolls": [
+          "4",
+          "4",
+          "4"
+        ],
+        "dice_groups": [
+          [
+            "4",
+            "4"
+          ],
+          [
+            "4"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--MFMXtEov2Ab_1TEv0jy discord-production\" data-messageid=\"-P73xYaOfxasphf5ATdN\" data-playerid=\"-MFMXtEov2Ab_1TEv0jy\"><div class=\"spacer\"></div><div aria-hidden=\"true\" class=\"avatar\"><img src=\"chatlog_files/43112bf655f9920e89f4535cf8c5c410_RsEV.png\"/></div><span aria-hidden=\"true\" class=\"tstamp\">November 22, 2026 8:32PM</span><span class=\"by\">Sarah M.:</span><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 2d20+7 +1d4</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div>+</div><div class=\"diceroll d20\" data-origindex=\"1\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div>+7+<div class=\"dicegrouping\" data-groupindex=\"2\">(<div class=\"diceroll d4 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">19</div></div>",
+      "adventure": "City in the Clouds"
+    },
+    {
+      "timestamp": "November 22, 2026 8:32PM",
+      "sender": "Hypae'tia \"Hype\"",
+      "type": "roll",
+      "content": null,
+      "roll_data": {
+        "formula": "rolling 1d20+7+1d4",
+        "result": "29",
+        "individual_rolls": [
+          "18",
+          "4"
+        ],
+        "dice_groups": [
+          [
+            "18"
+          ],
+          [
+            "4"
+          ]
+        ]
+      },
+      "raw_html": "<div class=\"message rollresult player--MFMXtEov2Ab_1TEv0jy discord-production\" data-messageid=\"-P73xgste1WAzt9ZVTbz\" data-playerid=\"-MFMXtEov2Ab_1TEv0jy\"><div class=\"formula\" style=\"margin-bottom: 3px;\">rolling 1d20+7+1d4</div><div class=\"clear\"></div><div class=\"formula formattedformula\"><div class=\"dicegrouping\" data-groupindex=\"0\">(<div class=\"diceroll d20\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">18</div><div class=\"backing\"></div></div></div>)</div>+7+<div class=\"dicegrouping\" data-groupindex=\"2\">(<div class=\"diceroll d4 critsuccess\" data-origindex=\"0\"><div class=\"dicon\"><div class=\"didroll\">4</div><div class=\"backing\"></div></div></div>)</div><div class=\"clear\"></div></div><div class=\"clear\"></div><strong>=</strong><div class=\"rolled\">29</div></div>",
+      "adventure": "City in the Clouds"
     }
   ]
 }

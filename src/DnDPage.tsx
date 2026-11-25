@@ -672,7 +672,7 @@ function DnDPage() {
               {mapRequested ? (
                 <Suspense fallback={<div className="map-loading-state">Loading campaign map...</div>}>
                   <LandscapeViewer
-                    modelPath="models/landscape.glb"
+                    modelPath={`${import.meta.env.BASE_URL}models/landscape.glb`}
                     minZoom={5}
                     maxZoom={25}
                     selectedSession={selectedSession}

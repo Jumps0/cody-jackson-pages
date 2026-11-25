@@ -177,6 +177,11 @@ input:focus, select:focus { outline: 2px solid var(--orange); outline-offset: 1p
 
 .landscape-page { margin-bottom: 28px; }
 .viewer-wrapper { height: min(68vw, 720px); min-height: 500px; border: 1px solid var(--line); background: #071322; box-shadow: 0 18px 60px rgba(0, 0, 0, .2); }
+.map-load-button { display: grid; width: 100%; height: 100%; place-items: center; border: 0; background: #071322; color: var(--ink); cursor: pointer; font: inherit; font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; transition: background-color .18s ease, color .18s ease; }
+.map-load-button:hover { background: #0b1c2a; color: var(--orange); }
+.map-load-button:focus-visible { outline: 2px solid var(--orange); outline-offset: -5px; }
+.map-loading-state { display: grid; width: 100%; height: 100%; place-items: center; background: #071322; color: var(--ink); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+.map-loading-label { padding: 10px 14px; border: 1px solid var(--line); background: rgba(7, 19, 34, .86); color: var(--ink); font: inherit; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
 .session-map-overlay { position: absolute; left: 18px; top: 18px; z-index: 2; border: 1px solid rgba(240, 163, 91, .6); background: rgba(7, 19, 34, .86); color: var(--ink); padding: 9px 12px; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; pointer-events: none; }
 .session-map-marker { width: 13px; height: 13px; border: 2px solid #fff3d2; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 5px rgba(240, 163, 91, .2), 0 0 22px rgba(240, 163, 91, .9); }
 

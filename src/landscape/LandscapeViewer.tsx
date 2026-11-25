@@ -258,7 +258,7 @@ const LandscapeViewer: React.FC<LandscapeViewerProps> = ({
         dpr={1}
         style={{ background: '#071322' }} // Dark blue "sea" background color
       >
-        <Suspense fallback={null}>
+        <Suspense fallback={<Html center><div className="map-loading-label">Loading campaign map...</div></Html>}>
           <Scene modelPath={modelPath} selectedSession={selectedSession} />
           <EffectComposer multisampling={2}>
             <Bloom // Bloom! Generally makes everything look better

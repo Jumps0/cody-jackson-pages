@@ -1,13 +1,14 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as echarts from 'echarts';
 import ChatData from './assets/chatdata.json';
 import StatisticsData from './assets/statistics.json';
 import SessionData from './assets/sessions.json';
-import LandscapeViewer from './landscape/LandscapeViewer';
 import leftArrowIcon from './assets/icon_arrow_left.png';
 import rightArrowIcon from './assets/icon_arrow_right.png';
 import './DnDPage.css';
 import './dicefont/dicefont.css';
+
+const LandscapeViewer = lazy(() => import('./landscape/LandscapeViewer'));
 
 type ChartOption = echarts.EChartsOption;
 
@@ -548,6 +549,7 @@ function DnDPage() {
   const [maxRoll, setMaxRoll] = useState('');
   const [page, setPage] = useState(0);
   const [selectedSessionIndex, setSelectedSessionIndex] = useState(sessions.length - 1);
+  const [mapRequested, setMapRequested] = useState(false);
 
   const users = useMemo(() => [...new Set(messages.map((message) => message.sender))].sort(), []);
   const adventures = useMemo(() => {
@@ -667,12 +669,18 @@ function DnDPage() {
           </section>
           <div className="landscape-page">
             <div className="viewer-wrapper">
-              <LandscapeViewer 
-                modelPath="models/landscape.glb"
-                minZoom={5}
-                maxZoom={25}
-                selectedSession={selectedSession}
-              />
+              {mapRequested ? (
+                <Suspense fallback={<div className="map-loading-state">Loading campaign map...</div>}>
+                  <LandscapeViewer
+                    modelPath="models/landscape.glb"
+                    minZoom={5}
+                    maxZoom={25}
+                    selectedSession={selectedSession}
+                  />
+                </Suspense>
+              ) : (
+                <button type="button" className="map-load-button" onClick={() => setMapRequested(true)}>Load Map</button>
+              )}
             </div>
           </div>
           <SessionTimeline selectedIndex={selectedSessionIndex} onSelect={setSelectedSessionIndex} />

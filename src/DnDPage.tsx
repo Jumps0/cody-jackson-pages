@@ -133,8 +133,31 @@ function renderMessageAuthor(sender: string): ReactNode {
 }
 
 function parseArchiveTimestamp(timestamp: string): Date {
-  const parsedTimestamp = new Date(`${timestamp} GMT+0200`); // Currently does not account for Daylight savings time. I feel like it may be more trouble than it's worth.
-  return Number.isNaN(parsedTimestamp.getTime()) ? new Date(timestamp) : parsedTimestamp;
+  const match = timestamp.match(/^([A-Za-z]{3,})\s+(\d{1,2}),\s*(\d{4})\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)$/i);
+  if (match) {
+    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    const month = months.indexOf(match[1].slice(0, 3).toLowerCase());
+    const day = Number(match[2]);
+    const year = Number(match[3]);
+    const hour = Number(match[4]);
+    const minute = Number(match[5]);
+    const second = Number(match[6] ?? 0);
+    const meridiem = match[7].toUpperCase();
+    const dateCheck = new Date(Date.UTC(year, month, day));
+
+    if (month >= 0 && dateCheck.getUTCFullYear() === year && dateCheck.getUTCMonth() === month && dateCheck.getUTCDate() === day &&
+      hour >= 1 && hour <= 12 && minute <= 59 && second <= 59) {
+      const hour24 = (hour % 12) + (meridiem === 'PM' ? 12 : 0);
+      return new Date(Date.UTC(year, month, day, hour24, minute, second));
+    }
+  }
+
+  return new Date(timestamp);
+}
+
+function getArchiveDateTime(timestamp: string): string | undefined {
+  const date = parseArchiveTimestamp(timestamp);
+  return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
 }
 
 function formatMessageTimestamp(timestamp: string): string {
@@ -643,7 +666,7 @@ function DnDPage() {
           <section className="dnd-results">
             <div className="results-toolbar"><div><strong>{filteredMessages.length.toLocaleString()}</strong> matching messages <span className="muted">/ {messages.length.toLocaleString()} total</span></div><div className="page-navigation"><span className="page-status">Page {currentPage + 1} of {pageCount}</span><div className="pagination pagination-top"><button type="button" onClick={() => changePage(Math.max(0, currentPage - 1))} disabled={currentPage === 0}>Previous</button><button type="button" onClick={() => changePage(Math.min(pageCount - 1, currentPage + 1))} disabled={currentPage >= pageCount - 1}>Next</button></div></div></div>
             <div className="message-list">{visibleMessages.map((message, index) => <article className="chat-message" key={`${message.timestamp}-${message.sender}-${currentPage}-${index}`}>
-              <div className="message-meta"><time dateTime={parseArchiveTimestamp(message.timestamp).toISOString()}>{formatMessageTimestamp(message.timestamp)}</time>{getAdventureCategory(message.adventure) !== 'Misc' && getAdventureCategory(message.adventure) && <span className="message-adventure">{getAdventureCategory(message.adventure)}</span>}<span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
+              <div className="message-meta"><time dateTime={getArchiveDateTime(message.timestamp)}>{formatMessageTimestamp(message.timestamp)}</time>{getAdventureCategory(message.adventure) !== 'Misc' && getAdventureCategory(message.adventure) && <span className="message-adventure">{getAdventureCategory(message.adventure)}</span>}<span className="message-type">{getMessageTypeLabel(message.type)}</span></div>
               <div className={`message-body${message.ability_embed ? ' has-ability-embed' : ''}`}>{message.ability_embed ? <><div className="ability-message-header">{renderMessageAuthor(message.sender)}</div>{renderAbilityEmbed(message)}</> : <>{renderMessageAuthor(message.sender)}{message.roll_data?.check_name && <span className="ability">{message.roll_data.check_name}</span>}<p>{message.content || (message.type === 'specified_roll' && message.roll_data?.formula ? renderSpecifiedFormula(message.roll_data.formula) : message.type === 'roll' && message.roll_data?.formula && message.roll_data.individual_rolls ? renderGeneralFormula(message.roll_data.formula, message.roll_data.individual_rolls, message.roll_data.dice_groups) : message.roll_data?.formula?.replace(/<[^>]+>/g, '')) || 'Roll recorded without accompanying text.'}</p></>}</div>
               {isRollMessage(message) && <div className="roll-value"><span>RESULT</span><strong>{getRolls(message).join(' / ') || 'No result'}</strong></div>}
             </article>)}{visibleMessages.length === 0 && <div className="empty-state"><strong>No messages found</strong><span>Try widening your filters or clearing the search.</span></div>}</div>

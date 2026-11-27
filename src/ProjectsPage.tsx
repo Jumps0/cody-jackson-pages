@@ -175,10 +175,14 @@ function YouTubeVideo({ videoUrl }: { videoUrl: string }) {
         className="youtube-video"
         src={embedUrl}
         title="YouTube video"
+        loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       />
+      <a className="youtube-video-link" href={videoUrl} target="_blank" rel="noopener noreferrer">
+        Watch on YouTube
+      </a>
     </div>
   );
 }
